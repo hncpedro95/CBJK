@@ -1,0 +1,113 @@
+<?php
+
+require_once 'conexao/Conexao.php';
+require_once 'Cliente.php';
+
+class ClienteDAO {
+
+    public $pdo = null;
+
+     function __construct() {
+        $this->pdo = Conexao::getConexao();
+    }
+
+    /**
+     * Retorna todos os clientes existentes no banco de dados
+     */
+    public function listarTodos() {
+         try {
+            $sql="SELECT * FROM `cliente` ";
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute();
+            $clientes=$stm->fetchAll(PDO::FETCH_OBJ);
+            return $clientes;
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
+
+    /**
+     * Cadastra o objeto cliente no banco de dados
+     * @param Cliente $cliente
+     */
+    public function cadastrar(Cliente $cliente) {
+    
+    try {
+//        var_dump($cliente);
+        $sql = "INSERT INTO `cliente`(`nome`, `cpf`, `rg`, `dt_nascimento`, `endereco`, `sexo`) "
+                    . "VALUES (:nome,:cpf,:rg,:dtNascimento,:endereco, :sexo)";
+//        echo $sql;       
+//        exit();
+            $stm = $this->pdo->prepare($sql);
+            $stm->bindValue("nome", $cliente->getNome());
+            $stm->bindValue("cpf", $cliente->getCpf());
+            $stm->bindValue("rg", $cliente->getRg());
+            $stm->bindValue("dtNascimento", $cliente->getDataNascimento());
+            $stm->bindValue("endereco", $cliente->getEndereco());
+            $stm->bindValue("sexo", $cliente->getSexo());
+//            $stm->bindValue("id_usuario", $cliente->getId_usuario());
+            return $stm->execute();
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
+    /**
+     * Exclui o cliente a partir do id
+     * @param type $idcliente
+     */
+    public function excluir($idcliente) {
+         try {
+            $stm = $this->pdo->prepare("DELETE FROM `cliente` WHERE `id_cliente`=:idCliente");
+            $stm->bindValue("idCliente", $idcliente);
+            return $stm->execute();
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
+
+    /**
+     * Retorna o cliente com id correspondente do parâmetro
+     * @param type $idclient
+     */
+    public function getCliente($idCliente) {
+         try {
+            $sql="SELECT "
+                . "`id_cliente`, `nome`, `cpf`, `rg`, `dt_nascimento`, `sexo`, `endereco` "
+                . "FROM `cliente` "
+                . "WHERE id_cliente=:idCliente";
+            $stm = $this->pdo->prepare($sql);
+            $stm->bindValue("idCliente", $idCliente);
+            $stm->execute();
+            $cliente=$stm->fetch(PDO::FETCH_OBJ);
+            return $cliente;
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
+
+    /**
+     * Altera as informações do cliente na base de dados 
+     * (Obs.: o cliente deve vim com ID para saber qual cliente atualizar)
+     * @param Cliente $cliente
+     */
+    public function alterar(Cliente $cliente) {
+         try {
+            $sql = "UPDATE `cliente` SET "
+                    . "`nome`=:nome,`cpf`=:cpf, "
+                    . "`rg`=:rg,`dt_nascimento`=:dataNascimento "
+                    . "WHERE `id_cliente`=:idCliente";
+            $stm = $this->pdo->prepare($sql);
+            $stm->bindValue("nome", $cliente->getNome());
+            $stm->bindValue("cpf", $cliente->getCpf());
+            $stm->bindValue("rg", $cliente->getRg());
+            $stm->bindValue("dataNascimento", $cliente->getDataNascimento());
+            $stm->bindValue("idCliente", $cliente->getIdCliente());
+            return $stm->execute();
+        } catch (PDOException $exc) {
+            echo $exc->getMessage();
+        }
+    }
+
+}
+
+?>
