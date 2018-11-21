@@ -8,18 +8,90 @@ class Cliente {
     private $dataNascimento;
     private $endereco;
     private $id_usuario;
+    private $numero;
+    private $complemento;
+    private $estado;
+    private $cidade;
+    private $telefone;
+    private $celular;
+    private $whatsapp;
     
+            
 
-        function __construct($nome,$cpf,$rg,$dataNascimento,$endereco,$sexo) {
+        function __construct($nome,$cpf,$rg,$dataNascimento,$endereco,$sexo, $numero, $complemento, $estado, $cidade,
+                $telefone, $celular, $whatsapp) {
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->rg = $rg;
         $this->dataNascimento = $dataNascimento;
         $this->endereco = $endereco;
-        $this->sexo = $sexo;
+        $this->numero = $numero;
+        $this->complemento = $complemento;
+        $this->estado = $estado;
+        $this->cidade = $cidade;
+        $this->telefone = $telefone;
+        $this->celular = $celular;
+        $this->whatsapp = $whatsapp;
+        
+        
     }
-    
-    function getIdCliente() {
+    function getNumero() {
+        return $this->numero;
+    }
+
+    function getComplemento() {
+        return $this->complemento;
+    }
+
+    function getEstado() {
+        return $this->estado;
+    }
+
+    function getCidade() {
+        return $this->cidade;
+    }
+
+    function getTelefone() {
+        return $this->telefone;
+    }
+
+    function getCelular() {
+        return $this->celular;
+    }
+
+    function getWhatsapp() {
+        return $this->whatsapp;
+    }
+
+    function setNumero($numero) {
+        $this->numero = $numero;
+    }
+
+    function setComplemento($complemento) {
+        $this->complemento = $complemento;
+    }
+
+    function setEstado($estado) {
+        $this->estado = $estado;
+    }
+
+    function setCidade($cidade) {
+        $this->cidade = $cidade;
+    }
+
+    function setTelefone($telefone) {
+        $this->telefone = $telefone;
+    }
+
+    function setCelular($celular) {
+        $this->celular = $celular;
+    }
+
+    function setWhatsapp($whatsapp) {
+        $this->whatsapp = $whatsapp;
+    }
+
+        function getIdCliente() {
         return $this->idCliente;
     }
 

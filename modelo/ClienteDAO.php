@@ -34,8 +34,10 @@ class ClienteDAO {
     
     try {
 //        var_dump($cliente);
-        $sql = "INSERT INTO `cliente`(`nome`, `cpf`, `rg`, `dt_nascimento`, `endereco`, `sexo`) "
-                    . "VALUES (:nome,:cpf,:rg,:dtNascimento,:endereco, :sexo)";
+        $sql = "INSERT INTO `cliente`(`nome`, `cpf`, `rg`, `dt_nascimento`, `endereco`, `sexo`, `numero`, `complemento`, `estado`, `cidade`,"
+                . "`telefone`, `celular`, `whatsapp`,) "
+                    . "VALUES (:nome,:cpf,:rg,:dtNascimento,:endereco, :sexo, :numero, :complemento, :estado, :cidade, :telefone,"
+                . ":celular, :whatsapp,)";
 //        echo $sql;       
 //        exit();
             $stm = $this->pdo->prepare($sql);
@@ -44,7 +46,13 @@ class ClienteDAO {
             $stm->bindValue("rg", $cliente->getRg());
             $stm->bindValue("dtNascimento", $cliente->getDataNascimento());
             $stm->bindValue("endereco", $cliente->getEndereco());
-            $stm->bindValue("sexo", $cliente->getSexo());
+            $stm->bindValue("numero", $cliente->getNumero());
+            $stm->bindValue("complemento", $cliente->getComplemento());
+            $stm->bindValue("estado", $cliente->getEstado());
+            $stm->bindValue("cidade", $cliente->getCidade());
+            $stm->bindValue("telefone", $cliente->getTelefone());
+            $stm->bindValue("celular", $cliente->getCelular());
+            $stm->bindValue("whatsapp", $cliente->getWhatsapp());
 //            $stm->bindValue("id_usuario", $cliente->getId_usuario());
             return $stm->execute();
         } catch (PDOException $exc) {

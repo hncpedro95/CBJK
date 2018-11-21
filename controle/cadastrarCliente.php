@@ -14,6 +14,13 @@ $cpf = $_POST["cpf"];
 $rg = $_POST["rg"];
 $dataNascimento = $_POST["dt_nascimento"];
 $endereco = $_POST["endereco"];
+$numero = $_POST["numero"];
+$complemento = $_POST["complemento"];
+$estado = $_POST["estado"];
+$cidade = $_POST["cidade"];
+$telefone = $_POST["telefone"];
+$celular = $_POST["celular"];
+$whatsapp = $_POST["whatsapp"];
 if(!isset($_POST["sexo"])){
     $erro = "Selecione uma opção do campo Sexo !";
     header('Location:../visao/formCadastrarCliente.php?msg='.$erro);
@@ -21,7 +28,8 @@ if(!isset($_POST["sexo"])){
 
 $sexo = $_POST["sexo"];
 
-$novoCliente = new Cliente($nome,$cpf,$rg,$dataNascimento,$endereco,$sexo);
+$novoCliente = new Cliente($nome,$cpf,$rg,$dataNascimento,$endereco,$sexo, $numero, $complemento, $estado, $cidade,
+        $telefone, $celular, $whatsapp);
 $novoCliente->setId_usuario($_SESSION["id_usuario"]);
 //var_dump($novoCliente);  exit();
 $clienteDAO = new ClienteDAO();
