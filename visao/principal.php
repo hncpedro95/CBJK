@@ -135,7 +135,7 @@ include '../controle/validarLogin.php';
         </nav>
         <div class="content-wrapper">
             <div class="container-fluid">
-                <div class="embed-responsive embed-responsive-21by9">
+                <div class="embed-responsive embed-responsive-1by1">
 
                     <iframe  class="embed-responsive-item" name="centro" src="index.php"></iframe>
                 </div>

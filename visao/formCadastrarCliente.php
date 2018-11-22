@@ -20,7 +20,7 @@
             <form action="../controle/cadastrarCliente.php" method="post">
                 <table class="table">
                     <tr>
-                        <td>Nome:</td>
+                        <td>Nome Completo:</td>
                         <td><input type="text" name="nome" size="50"/></td>
                     </tr>
                     <tr>
@@ -28,12 +28,16 @@
                         <td><input type="text" name="cpf"/></td>
                     </tr>                
                     <tr>
-                        <td>RG:</td>
-                        <td><input type="text" name="rg"/></td>
+                        <td>Endereço:</td>
+                        <td><input type="text" name="endereco"/></td>
                     </tr>                                
                     <tr>
-                        <td>Data de Nascimento:</td>
-                        <td><input type="date" name="dt_nascimento"/></td>
+                        <td>Nº:</td>
+                        <td><input type="date" name="numero"/></td>
+                    </tr>                                                
+                    <tr>
+                        <td>Complemento:</td>
+                        <td><input type="date" name="complemento"/></td>
                     </tr>                                                
                     <tr>
                         <td>Sexo:</td>
