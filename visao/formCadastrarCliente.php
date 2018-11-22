@@ -40,15 +40,60 @@
                         <td><input type="date" name="complemento"/></td>
                     </tr>                                                
                     <tr>
-                        <td>Sexo:</td>
+                        <td>Estado</td>
                         <td>
-                            Masculino <input required="true" type="radio" name="sexo" value="M"/>
-                            Feminino <input  required="true" type="radio" name="sexo" value="F"/>
+                            <select name="estado">
+                                <option value="volvo">AC</option>
+                                <option value="saab">AL</option>
+                                <option value="opel">AP</option>
+                                <option value="audi">AM</option>
+                                <option value="volvo">BA</option>
+                                <option value="saab">CE</option>
+                                <option value="df">DF</option>
+                                <option value="audi">ES</option>
+                                <option value="go">GO</option>
+                                <option value="saab">MA</option>
+                                <option value="opel">MT</option>
+                                <option value="audi">MS</option>
+                                <option value="volvo">MG</option>
+                                <option value="saab">PA</option>
+                                <option value="opel">PB</option>
+                                <option value="audi">PR</option>
+                                <option value="volvo">PE</option>
+                                <option value="saab">PI</option>
+                                <option value="opel">RJ</option>
+                                <option value="audi">RN</option>
+                                <option value="volvo">RS</option>
+                                <option value="saab">RO</option>
+                                <option value="opel">RR</option>
+                                <option value="audi">SC</option>
+                                <option value="volvo">SP</option>
+                                <option value="saab">SE</option>
+                                <option value="opel">TO</option>
+                               
+                            </select>
                         </td>
                     </tr>                                
                     <tr>
-                        <td>Endereço:</td>
-                        <td><input type="text" size="60" name="endereco"/></td>
+                        <td>Cidade:</td>
+                        <td><input type="text" size="60" name="cidade"/></td>
+                    </tr>                                                
+                    <tr>
+                        <td>Telefone:</td>
+                        <td><input type="text" size="60" name="telefone"/></td>
+                    </tr>                                                
+                    <tr>
+                        <td>Celular:</td>
+                        <td><input type="text" size="60" name="celular"/></td>
+                    </tr>                                                
+                    <tr>
+                        <td>Whatsapp:</td>
+                        <td>
+                            <select name="whatsapp">
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                        </td>
                     </tr>                                                
                     <tr>                    
                         <td colspan="2">
