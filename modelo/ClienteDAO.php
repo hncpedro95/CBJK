@@ -79,7 +79,7 @@ class ClienteDAO {
     public function getCliente($idCliente) {
          try {
             $sql="SELECT "
-                . "`id_cliente`, `nome`, `cpf`, `endereco`, `numero`, `complemento`,`estado`, `cidade`, `telefone`, `celular`, `whatasapp` "
+                . "`id_cliente`, `nome`, `cpf`, `endereco`, `numero`, `complemento`,`estado`, `cidade`, `telefone`, `celular`, `whatsapp` "
                 . "FROM `cliente` "
                 . "WHERE id_cliente=:idCliente";
             $stm = $this->pdo->prepare($sql);

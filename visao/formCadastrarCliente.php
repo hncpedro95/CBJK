@@ -16,7 +16,7 @@
 
         </ol>
         <div class="container">
-            <div class="well"><strong>Cadastro de Usuário</strong></div> 
+            <div class="well"><strong>Cadastro de Cliente</strong></div> 
             <form action="../controle/cadastrarCliente.php" method="post">
                 <table class="table">
                     <tr>
