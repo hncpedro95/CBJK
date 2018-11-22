@@ -33,11 +33,11 @@
                     </tr>                                
                     <tr>
                         <td>Nº:</td>
-                        <td><input type="date" name="numero"/></td>
+                        <td><input type="text" name="numero"/></td>
                     </tr>                                                
                     <tr>
                         <td>Complemento:</td>
-                        <td><input type="date" name="complemento"/></td>
+                        <td><input type="text" name="complemento"/></td>
                     </tr>                                                
                     <tr>
                         <td>Estado</td>
@@ -90,8 +90,8 @@
                         <td>Whatsapp:</td>
                         <td>
                             <select name="whatsapp">
-                                <option value="sim">Sim</option>
-                                <option value="nao">Não</option>
+                                <option value="s">Sim</option>
+                                <option value="n">Não</option>
                             </select>
                         </td>
                     </tr>                                                

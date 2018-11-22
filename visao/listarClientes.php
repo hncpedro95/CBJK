@@ -52,10 +52,9 @@ require_once '../util/funcaoData.php';
                             <th>COD. Cliente</th>
                             <th>Nome</th>
                             <th>Cpf</th>
-                            <th>Rg</th>
-                            <th>Sexo</th>
-                            <th>Data de Nascimento</th>
-                            <th>endereco</th>
+                            <th>Cidade</th>
+                            <th>Telefone</th>
+                            <th>Whatsapp</th>
                             <th>Excluir</th>
                             <th>Alterar</th>
                         </tr>
@@ -70,10 +69,9 @@ require_once '../util/funcaoData.php';
                         echo "  <td>{$cliente->id_cliente}</td>";
                         echo "  <td>{$cliente->nome}</td>";
                         echo "  <td>{$cliente->cpf}</td>";
-                        echo "  <td>{$cliente->rg}</td>";
-                        echo "  <td>{$cliente->sexo}</td>";
-                        echo "  <td>", dateUStoDateBR($cliente->dt_nascimento), "</td>";
-                        echo "  <td>{$cliente->endereco}</td>";
+                        echo "  <td>{$cliente->cidade}</td>";
+                        echo "  <td>{$cliente->telefone}</td>";
+                        echo "  <td>{$cliente->whatsapp}</td>";
                         echo "  <td><a href='../controle/excluirCliente.php?idcliente={$cliente->id_cliente}'>Excluir</a></td>";
                         echo "  <td><a href='formAlterarCliente.php?idcliente={$cliente->id_cliente}'>Alterar</a></td>";
                         echo "</tr>";
