@@ -10,20 +10,11 @@ session_start();
  */
 //print_r($_POST);
 $nome = $_POST["nome"];
-$fabricante = $_POST["fabricante"];
 $quantidade = $_POST["quantidade"];
 $preco = $_POST["preco"];
 
-if (isset($_FILES["fotoProduto"])){
-    require_once '../modelo/Upload.class.php';
-    $upload = new upload($_FILES["fotoProduto"], "../visao/imagens/fotosProdutos/");
-    if ($upload->processed){
-        $foto_produto = $upload->file_dst_name;
-    }
-}
 
-
-$novoProduto = new produto($nome,$fabricante,$quantidade,$preco,$foto_produto);
+$novoProduto = new produto($nome,$quantidade,$preco);
 $novoProduto->setIdProduto($_SESSION["id_usuario"]);
 //var_dump($novoCliente);  exit();
 $produtoDAO = new produtoDAO();

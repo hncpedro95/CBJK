@@ -1,31 +1,19 @@
 <?php
 
 class produto {
-    
+
     private $idProduto;
-    private $nomeProduto;
-    private $fabricante;
+    private $nome;
     private $quantidade;
     private $preco;
-    private $foto;
-        
 
-        function __construct($nomeProduto,$fabricante,$quantidade,$preco,$foto) {
-        $this->nomeProduto = $nomeProduto;
-        $this->fabricante = $fabricante;
+    function __construct($nome, $quantidade, $preco) {
+        $this->nome = $nome;
         $this->quantidade = $quantidade;
         $this->preco = $preco;
-        $this->foto = $foto;
-    }
-    function getFoto() {
-        return $this->foto;
     }
 
-    function setFoto($foto) {
-        $this->foto = $foto;
-    }
-
-        function getIdProduto() {
+    function getIdProduto() {
         return $this->idProduto;
     }
 
@@ -33,13 +21,8 @@ class produto {
         $this->idProduto = $idProduto;
     }
 
-        
-    function getNomeProduto() {
-        return $this->nomeProduto;
-    }
-
-    function getFabricante() {
-        return $this->fabricante;
+    function getNome() {
+        return $this->nome;
     }
 
     function getQuantidade() {
@@ -50,16 +33,8 @@ class produto {
         return $this->preco;
     }
 
-//    function getFoto() {
-//        return $this->foto;
-//    }
-
-    function setNomeProduto($nomeProduto) {
-        $this->nomeProduto = $nomeProduto;
-    }
-
-    function setFabricante($fabricante) {
-        $this->fabricante = $fabricante;
+    function setNome($nome) {
+        $this->nome = $nome;
     }
 
     function setQuantidade($quantidade) {
@@ -69,11 +44,6 @@ class produto {
     function setPreco($preco) {
         $this->preco = $preco;
     }
-
-//    function setFoto($foto) {
-//        $this->foto = $foto;
-//    }
-
 
 }
 

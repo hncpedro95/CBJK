@@ -34,16 +34,14 @@ class produtoDAO {
     
     try {
         //var_dump($cliente);
-        $sql = "INSERT INTO `produto`(`nome`, `fabricante`, `quantidade`, `preco`, foto) "
-                    . "VALUES (:nome,:fabricante,:quantidade,:preco,:foto)";
+        $sql = "INSERT INTO `produto`(`nome`, `quantidade`, `preco` ) "
+                    . "VALUES (:nome, :quantidade,:preco )";
         //echo $sql;       
         //exit();
             $stm = $this->pdo->prepare($sql);
-            $stm->bindValue("nome", $produto->getNomeProduto());
-            $stm->bindValue("fabricante", $produto->getFabricante());
+            $stm->bindValue("nome", $produto->getNome());
             $stm->bindValue("quantidade", $produto->getQuantidade());
             $stm->bindValue("preco", $produto->getPreco());
-            $stm->bindValue("foto", $produto->getFoto());
          return $stm->execute();
         } catch (PDOException $exc) {
             echo $exc->getMessage();

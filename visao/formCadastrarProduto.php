@@ -8,38 +8,41 @@
     </head>
     <body>
         <div class="container">
-            <div class="well"><strong>Cadastro de Produtos</strong></div> 
+
+            <div class="well alert alert-dark text-center" ><strong>Cadastro de Produtos</strong></div> 
             <form action="../controle/cadastrarProduto.php" method="post"enctype="multipart/form-data">
-                <table class="table">
-                    <tr>
-                        <td>Nome:</td>
-                        <td><input type="text" name="nome" size="50"/></td>
-                    </tr>
-                    <tr>
-                        <td>Fabricante:</td>
-                        <td><input type="text" name="fabricante"/></td>
-                    </tr>                
-                    <tr>
-                        <td>Quantidade:</td>
-                        <td><input type="text" name="quantidade"/></td>
-                    </tr>                                
-                    <tr>
-                        <td>Preço:</td>
-                        <td><input type="text" name="preco"/></td>
-                    </tr>                                                
-                    <tr>
-                        <td>foto:</td>
-                        <td><input type="file" name="fotoProduto"/></td>
-                    </tr>                                
-                                                                  
-                    <tr>                    
-                        <td colspan="2">
-                            <input type="submit" class="btn btn-success" value="Cadastrar"/>
-                            <input type="reset" class="btn btn-primary"  value="Limpar">
-                            <a href="listarProduto.php.php"><input type="button" class="btn btn-primary" value="Voltar"/></a>
-                        </td>
-                    </tr>                                                                
-                </table>
+
+
+
+                <div class="form-row">
+                    <div class="col-md-10 mb-8">
+                        <label for="validationCustom01">Nome:</label>
+                        <input name="nome"type="text" class="form-control" id="nome"  required>
+                        <div class="valid-feedback">
+                            Válido !
+                        </div>
+                    </div>
+                    <div class="col-md-1 mb-2">
+                        <label for="validationCustom01">Quantidade:</label>
+                        <input name="quantidade"type="text" class="form-control" id="quantidade"  required>
+                        <div class="valid-feedback">
+                            Válido !
+                        </div>
+                    </div>
+                    <div class="col-md-1 mb-2">
+                        <label for="validationCustom01">Preço:</label>
+                        <input name="preco"type="text" class="form-control" id="preco"  required>
+                        <div class="valid-feedback">
+                            Válido !
+                        </div>
+                    </div>
+                </div>
+
+
+                <input type="submit" class="btn btn-success" value="Cadastrar"/>
+                <input type="reset" class="btn btn-primary"  value="Limpar">
+                <a href="listarProduto.php.php"><input type="button" class="btn btn-primary" value="Voltar"/></a>                                            
+
             </form>
         </div>
     <center>

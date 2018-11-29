@@ -85,6 +85,22 @@ include '../controle/validarLogin.php';
                             <span class="nav-link-text"> Venda</span>
                         </a>
                     </li>
+                    
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Produtos">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#produtos" data-parent="#produtos">
+                            <i class="fa fa-cutlery" aria-hidden="true"></i>
+                            <span class="nav-link-text">Produtos</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="produtos">
+<!--                            <li>
+                                <a class="fa fa-fw fa-list" href="listarClientes.php" target="centro">&nbsp;Listar</a>
+                            </li>-->
+                            <li>
+                                <a class="fa fa-fw fa-plus" href="formCadastrarProduto.php" target="centro">&nbsp;Cadastrar</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Relátorios">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-file-text"></i>
