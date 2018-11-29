@@ -50,7 +50,6 @@ class ClienteDAO {
             $stm->bindValue("cidade", $cliente->getCidade());
             $stm->bindValue("telefone", $cliente->getTelefone());
             $stm->bindValue("celular", $cliente->getCelular());
-            $stm->bindValue("celular", $cliente->getCelular());
             $stm->bindValue("whatsapp", $cliente->getWhatsapp());
             $stm->bindValue("id_usuario", $cliente->getId_usuario());
             return $stm->execute();
@@ -101,11 +100,14 @@ class ClienteDAO {
          try {
             $sql = "UPDATE `cliente` SET "
                     . "`nome`=:nome,`cpf`=:cpf, "
-                    . "`endereco`=:endereco "
-                    . "`numero`=:numero, `complemento`=:complemento "
-                    . "`estado`=:estado, `cidade`=:cidade "
+                    . "`endereco`=:endereco, "
+                    . "`numero`=:numero, `complemento`=:complemento, "
+                    . "`estado`=:estado, `cidade`=:cidade, "
                     . "`telefone`=:telefone, `celular`=:celular, `whatsapp`=:whatsapp "
                     . "WHERE `id_cliente`=:idCliente";
+//            echo $sql;
+//            var_dump($cliente);
+//            exit();
             $stm = $this->pdo->prepare($sql);
             $stm->bindValue("nome", $cliente->getNome());
             $stm->bindValue("cpf", $cliente->getCpf());

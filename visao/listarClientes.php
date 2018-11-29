@@ -71,9 +71,17 @@ require_once '../util/funcaoData.php';
                         echo "  <td>{$cliente->cpf}</td>";
                         echo "  <td>{$cliente->cidade}</td>";
                         echo "  <td>{$cliente->telefone}</td>";
-                        echo "  <td>{$cliente->whatsapp}</td>";
-                        echo "  <td><a href='../controle/excluirCliente.php?idcliente={$cliente->id_cliente}'>Excluir</a></td>";
-                        echo "  <td><a href='formAlterarCliente.php?idcliente={$cliente->id_cliente}'>Alterar</a></td>";
+                        echo "  <td>";
+                            if ($cliente->whatsapp== "s"){
+                                
+                                echo 'Sim';
+                            }
+                            else {
+                                echo 'Não';
+                            }
+                        echo "</td>";
+                        echo "  <td class='text-center'><a  class='fa fa-trash text-danger'style='font-size:2rem'  href='../controle/excluirCliente.php?idcliente={$cliente->id_cliente}'></a></td>";
+                        echo "  <td class='text-center'><a class='fa fa-pencil'style='font-size:2rem'  href='formAlterarCliente.php?idcliente={$cliente->id_cliente}'></a></td>";
                         echo "</tr>";
                     }
                     ?>

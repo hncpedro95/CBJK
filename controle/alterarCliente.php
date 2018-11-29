@@ -6,19 +6,21 @@ require '../util/funcaoData.php';
 $idCliente = $_POST["idcliente"];
 $nome = $_POST["nome"];
 $cpf = $_POST["cpf"];
-$rg = $_POST["rg"];
-$dataNascimento = $_POST["dt_nascimento"];
 $endereco = $_POST["endereco"];
-$sexo = $_POST["sexo"];
+$numero = $_POST["numero"];
+$complemento = $_POST["complemento"];
+$estado = $_POST["estado"];
+$cidade = $_POST["cidade"];
+$telefone = $_POST["telefone"];
+$celular = $_POST["celular"];
+$whatsapp = $_POST["whatsapp"];
 
-$cliente = new Cliente($nome,$cpf,$rg,$dataNascimento,$endereco,$sexo);
+
+$cliente = new Cliente($nome, $cpf, $endereco, $numero, $complemento, $estado, $cidade, $telefone, $celular, $whatsapp);
 $cliente->setIdCliente($idCliente);
-$cliente->setNome($nome);
-$cliente->setCpf($cpf);
-$cliente->setRg($rg);
-$cliente->setDataNascimento($dataNascimento);
-$cliente->setEndereco($endereco);
-$cliente->setSexo($sexo);
+
+
+
 //if (empty($novaSenha)) {
  //   $usuario->setSenha($senhaAntiga);
 //} else {
@@ -30,8 +32,10 @@ $sucesso = $clienteDAO->alterar($cliente);
 
 if ($sucesso) {
     $msg = "Cliente atualizado com sucesso!";
-    header('Location: ../visao/formAlterarCliente.php?idcliente=' 
-            . $idCliente . '&msg=' . $msg);
+    header('Location: ../visao/listarClientes.php?msg=' . $msg);
+}
+ else {
+    echo 'Erro ao alterar cliente';    
 }
 /**
  * Crie aqui o controlador que irá receber o dados do formulário /visao/formAlterarCliente.php

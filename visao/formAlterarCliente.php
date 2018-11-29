@@ -54,7 +54,7 @@ require_once '../modelo/ClienteDAO.php';
                         <td>Estado</td>
                         <td>
                             <select name="estado">
-                                <option <?php $cliente->estado=="volvo"?"selected":""; ?> value="volvo">AC</option>
+                                <option <?php echo $cliente->estado=="volvo"?"selected":""; ?> value="volvo">AC</option>
                                 
                                 <option value="saab">AL</option>
                                 <option value="opel">AP</option>
@@ -63,7 +63,7 @@ require_once '../modelo/ClienteDAO.php';
                                 <option value="saab">CE</option>
                                 <option value="df">DF</option>
                                 <option value="audi">ES</option>
-                                <option value="go">GO</option>
+                                <option <?php echo $cliente->estado=="go"?"selected":""; ?> value="go">GO</option>
                                 <option value="saab">MA</option>
                                 <option value="opel">MT</option>
                                 <option value="audi">MS</option>
