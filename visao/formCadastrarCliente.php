@@ -20,48 +20,63 @@
             <form action="../controle/cadastrarCliente.php" class="needs-validation" novalidate method="post">
                 <div class="form-row">
                     <div class="col-md-8 mb-3">
-                        <label for="validationCustom01">Nome Completo:</label>
-                        <input type="text" class="form-control" id="validationCustom01"  required>
-                        <div class="valid-feedback">
-                            Válido !
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" name="nome" class="form-control" id="nome"  required>
+                        <div class="invalid-feedback">
+                            Digite o nome do cliente!
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="validationCustom02">CPF:</label>
-                        <input type="text" class="form-control" id="validationCustom02" required>
+                        <label for="cpf">CPF:</label>
+                        <input type="text" name="cpf" class="form-control" id="cpf" required>
+                        <div class="invalid-feedback">
+                            Digite um número de CPF valido!
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">                    
                     <div class="col-md-6 mb-3">
-                        <label for="validationCustomUsername">Endereço:</label>
+                        <label for="endereco">Endereço:</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="validationCustomUsername"  aria-describedby="inputGroupPrepend" required>
+                            <input type="text" name="endereco" class="form-control" id="endereco"  aria-describedby="inputGroupPrepend" required>
+                            <div class="invalid-feedback">
+                            Digite um endereço!
+                        </div>
                         </div>
                     </div>
                     <div class="col-md-2 mb-3">
-                        <label for="validationCustom03">Nº:</label>
-                        <input type="text" class="form-control" id="validationCustom03" required>
+                        <label for="numero">Nº:</label>
+                        <input type="text" name="numero" class="form-control" id="numero" required>
+                        <div class="invalid-feedback">
+                            Digite um número de endereço!
+                        </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="validationCustom05">Complemento:</label>
-                        <input type="text" class="form-control" id="validationCustom05" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid zip.
+                        <label for="complemento">Complemento:</label>
+                        <input type="text" name="complemento" class="form-control" id="complemento" >
+                       <div class="valid-feedback">
+                            Não é obrigatório !
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-md-5 mb-3">
-                        <label for="validationCustom03">Cidade:</label>
-                        <input type="text" class="form-control" id="validationCustom03" required>
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" name="cidade" class="form-control" id="cidade" required>
+                        <div class="invalid-feedback">
+                            Digite a cidade!
+                        </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="validationCustom03">Bairro:</label>
-                        <input type="text" class="form-control" id="validationCustom03" required>
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" name="bairro" class="form-control" id="bairro" required>
+                        <div class="invalid-feedback">
+                            Digite o bairro!
+                        </div>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label for="validationCustom04">Estado:</label>
-                        <select required="" class="form-control " id="validationCustom01"  name=Estado">
+                        <label for="estado">Estado:</label>
+                        <select required="" name="estado" class="form-control " id="estado"  name=Estado">
                             <option value="" >Selecione...</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
@@ -96,7 +111,32 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary " type="submit">Submit form</button>
+                <div class="form-row">    
+                    <div class="col-md-5 mb-3">
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" name="telefone" class="form-control" id="telefone" >
+                        <div class="valid-feedback">
+                            Não é obrigatório!
+                        </div>
+                    </div> 
+                    <div class="col-md-5 mb-3">
+                        <label for="celular">Celular:</label>
+                        <input type="text" name="celular" class="form-control" id="celular" required>
+                        <div class="invalid-feedback">
+                            Digite um número de celular valido!
+                        </div>
+                    </div> 
+                    <div class="col-md-2 mb-3">
+                        <label for="whatsapp">Whatsapp:</label>
+                        <select required="" name="whatsapp" class="form-control " id="whatsapp"  name=Estado">
+                            <option value="s" >Sim</option>
+                            <option value="n" >Não</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-success" value="Cadastrar"/>
+                <input type="reset" class="btn btn-primary"  value="Limpar">
+                <a href="listarClientes.php"><input type="button" class="btn btn-primary" value="Voltar p/ lista"/></a>
             </form>
         </div>
     <center>
@@ -107,7 +147,7 @@
         ?>
     </center>
     <script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict';
             window.addEventListener('load', function () {

@@ -18,6 +18,7 @@ $cpf = $_POST["cpf"];
 $endereco = $_POST["endereco"];
 $numero = $_POST["numero"];
 $complemento = $_POST["complemento"];
+$bairro = $_POST["bairro"];
 $estado = $_POST["estado"];
 $cidade = $_POST["cidade"];
 $telefone = $_POST["telefone"];
@@ -27,7 +28,7 @@ $whatsapp = $_POST["whatsapp"];
 
 
 
-$novoCliente = new Cliente($nome, $cpf, $endereco, $numero, $complemento, $estado, $cidade,
+$novoCliente = new Cliente($nome, $cpf, $endereco, $numero, $complemento, $bairro, $estado, $cidade,
         $telefone, $celular, $whatsapp);
 $novoCliente->setId_usuario($_SESSION["id_usuario"]);
 //var_dump($novoCliente);  exit();

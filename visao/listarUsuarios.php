@@ -13,10 +13,16 @@ require_once '../util/funcaoData.php';
         <title>Lista de Usuários</title>
     </head>
     <body>
-    <br />
     <center>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="principal.php" target="_parent">Início</a>
+            </li>
+            <li class="breadcrumb-item "> <a href="#">Usuários</a></li>
+            <li class="breadcrumb-item active"> Listar</li>
+        </ol>
         <div class="container">
-            <div class="well"><strong>LISTA DE USUÁRIOS</strong></div> 
+             <div class="well alert alert-dark text-center" ><strong>Lista de Usuários</strong></div> 
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr class="info">

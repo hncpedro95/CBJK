@@ -30,7 +30,7 @@ require_once '../util/funcaoData.php';
         <!-- Custom styles for this template-->
         <link href="css/sb-admin.css" rel="stylesheet">
         <link href="css/sb-admin.min.css" rel="stylesheet">
-        
+
         <title>Lista de Clientes</title>        
     </head>
     <body id="page-top">
@@ -40,9 +40,8 @@ require_once '../util/funcaoData.php';
             </li>
             <li class="breadcrumb-item "> <a href="#">Clientes</a></li>
             <li class="breadcrumb-item active"> Listar</li>
-
         </ol>
-        <br />
+        <div class="well alert alert-dark text-center" ><strong>Lista de Clientes</strong></div> 
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -72,13 +71,12 @@ require_once '../util/funcaoData.php';
                         echo "  <td>{$cliente->cidade}</td>";
                         echo "  <td>{$cliente->telefone}</td>";
                         echo "  <td>";
-                            if ($cliente->whatsapp== "s"){
-                                
-                                echo 'Sim';
-                            }
-                            else {
-                                echo 'Não';
-                            }
+                        if ($cliente->whatsapp == "s") {
+
+                            echo 'Sim';
+                        } else {
+                            echo 'Não';
+                        }
                         echo "</td>";
                         echo "  <td class='text-center'><a  class='fa fa-trash text-danger'style='font-size:2rem'  href='../controle/excluirCliente.php?idcliente={$cliente->id_cliente}'></a></td>";
                         echo "  <td class='text-center'><a class='fa fa-pencil'style='font-size:2rem'  href='formAlterarCliente.php?idcliente={$cliente->id_cliente}'></a></td>";
@@ -96,8 +94,8 @@ require_once '../util/funcaoData.php';
 
             </div>
         </div>
- <a class="scroll-to-top rounded" href="#page-top">
-                    <i class="fa fa-angle-up"></i>
-                </a>
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
     </body>
 </html>

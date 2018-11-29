@@ -34,9 +34,9 @@ class ClienteDAO {
     
     try {
         var_dump($cliente);
-        $sql = "INSERT INTO `cliente`(`nome`, `cpf`, `endereco`, `numero`, `complemento`, `estado`, `cidade`,"
+        $sql = "INSERT INTO `cliente`(`nome`, `cpf`, `endereco`, `numero`, `complemento`, `bairro`, `estado`, `cidade`,"
                 . "`telefone`, `celular`, `whatsapp`, `id_usuario`) "
-                    . "VALUES (:nome,:cpf, :endereco, :numero, :complemento, :estado, :cidade, :telefone,"
+                    . "VALUES (:nome,:cpf, :endereco, :numero, :complemento,:bairro, :estado, :cidade, :telefone,"
                 . ":celular, :whatsapp, :id_usuario)";
         echo $sql;       
 //        exit();
@@ -46,6 +46,7 @@ class ClienteDAO {
             $stm->bindValue("endereco", $cliente->getEndereco());
             $stm->bindValue("numero", $cliente->getNumero());
             $stm->bindValue("complemento", $cliente->getComplemento());
+            $stm->bindValue("bairro", $cliente->getBairro());
             $stm->bindValue("estado", $cliente->getEstado());
             $stm->bindValue("cidade", $cliente->getCidade());
             $stm->bindValue("telefone", $cliente->getTelefone());
@@ -78,7 +79,7 @@ class ClienteDAO {
     public function getCliente($idCliente) {
          try {
             $sql="SELECT "
-                . "`id_cliente`, `nome`, `cpf`, `endereco`, `numero`, `complemento`,`estado`, `cidade`, `telefone`, `celular`, `whatsapp` "
+                . "`id_cliente`, `nome`, `cpf`, `endereco`, `numero`, `complemento`,`bairro`,`estado`, `cidade`, `telefone`, `celular`, `whatsapp` "
                 . "FROM `cliente` "
                 . "WHERE id_cliente=:idCliente";
             $stm = $this->pdo->prepare($sql);
@@ -101,7 +102,7 @@ class ClienteDAO {
             $sql = "UPDATE `cliente` SET "
                     . "`nome`=:nome,`cpf`=:cpf, "
                     . "`endereco`=:endereco, "
-                    . "`numero`=:numero, `complemento`=:complemento, "
+                    . "`numero`=:numero, `complemento`=:complemento,`bairro`=:bairro, "
                     . "`estado`=:estado, `cidade`=:cidade, "
                     . "`telefone`=:telefone, `celular`=:celular, `whatsapp`=:whatsapp "
                     . "WHERE `id_cliente`=:idCliente";
@@ -114,6 +115,7 @@ class ClienteDAO {
             $stm->bindValue("endereco", $cliente->getEndereco());
             $stm->bindValue("numero", $cliente->getNumero());
             $stm->bindValue("complemento", $cliente->getComplemento());
+            $stm->bindValue("bairro", $cliente->getBairro());
             $stm->bindValue("estado", $cliente->getEstado());
             $stm->bindValue("cidade", $cliente->getCidade());
             $stm->bindValue("telefone", $cliente->getTelefone());

@@ -9,6 +9,7 @@ class Cliente {
     private $id_usuario;
     private $numero;
     private $complemento;
+    private $bairro;
     private $estado;
     private $cidade;
     private $telefone;
@@ -17,13 +18,14 @@ class Cliente {
     
             
 
-        function __construct($nome,$cpf, $endereco, $numero, $complemento, $estado, $cidade,
+        function __construct($nome,$cpf, $endereco, $numero, $complemento, $bairro, $estado, $cidade,
                 $telefone, $celular, $whatsapp) {
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->endereco = $endereco;
         $this->numero = $numero;
         $this->complemento = $complemento;
+        $this->bairro = $bairro;
         $this->estado = $estado;
         $this->cidade = $cidade;
         $this->telefone = $telefone;
@@ -59,7 +61,15 @@ class Cliente {
     function getComplemento() {
         return $this->complemento;
     }
+    function getBairro() {
+        return $this->bairro;
+    }
 
+    function setBairro($bairro) {
+        $this->bairro = $bairro;
+    }
+
+    
     function getEstado() {
         return $this->estado;
     }
