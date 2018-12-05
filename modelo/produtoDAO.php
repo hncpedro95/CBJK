@@ -7,7 +7,7 @@ class produtoDAO {
 
     public $pdo = null;
 
-     function __construct() {
+    function __construct() {
         $this->pdo = Conexao::getConexao();
     }
 
@@ -15,11 +15,11 @@ class produtoDAO {
      * Retorna todos os clientes existentes no banco de dados
      */
     public function listarTodos() {
-         try {
-            $sql="SELECT * FROM `produto` ";
+        try {
+            $sql = "SELECT * FROM `produto` ";
             $stm = $this->pdo->prepare($sql);
             $stm->execute();
-            $produtos=$stm->fetchAll(PDO::FETCH_OBJ);
+            $produtos = $stm->fetchAll(PDO::FETCH_OBJ);
             return $produtos;
         } catch (PDOException $exc) {
             echo $exc->getMessage();
@@ -31,29 +31,30 @@ class produtoDAO {
      * @param produto $produto
      */
     public function cadastrar(produto $produto) {
-    
-    try {
-        //var_dump($cliente);
-        $sql = "INSERT INTO `produto`(`nome`, `quantidade`, `preco` ) "
+
+        try {
+            //var_dump($cliente);
+            $sql = "INSERT INTO `produto`(`nome`, `quantidade`, `preco` ) "
                     . "VALUES (:nome, :quantidade,:preco )";
-        //echo $sql;       
-        //exit();
+            //echo $sql;       
+            //exit();
             $stm = $this->pdo->prepare($sql);
             $stm->bindValue("nome", $produto->getNome());
             $stm->bindValue("quantidade", $produto->getQuantidade());
             $stm->bindValue("preco", $produto->getPreco());
-         return $stm->execute();
+            return $stm->execute();
         } catch (PDOException $exc) {
             echo $exc->getMessage();
         }
     }
+
     /**
      * Exclui o produto a partir do id
      * @param type $idcliente
      */
     public function excluir($idProduto) {
-         try {
-            $stm = $this->pdo->prepare("DELETE FROM `produto` WHERE `id`=:idProduto");
+        try {
+            $stm = $this->pdo->prepare("DELETE FROM `produto` WHERE `id_produto`=:idProduto");
             $stm->bindValue("idProduto", $idProduto);
             return $stm->execute();
         } catch (PDOException $exc) {
@@ -66,15 +67,15 @@ class produtoDAO {
      * @param type $idclient
      */
     public function getProduto($idProduto) {
-         try {
-            $sql="SELECT "
-                . "`id`, `nome`, `fabricante`, `quantidade`, `preco`, `foto`"
-                . "FROM `produto` "
-                . "WHERE id=:idProduto";
+        try {
+            $sql = "SELECT "
+                    . "`id_produto`, `nome`, `quantidade`, `preco`"
+                    . "FROM `produto` "
+                    . "WHERE id_produto=:idProduto";
             $stm = $this->pdo->prepare($sql);
             $stm->bindValue("idProduto", $idProduto);
             $stm->execute();
-            $produto=$stm->fetch(PDO::FETCH_OBJ);
+            $produto = $stm->fetch(PDO::FETCH_OBJ);
             return $produto;
         } catch (PDOException $exc) {
             echo $exc->getMessage();
@@ -87,17 +88,19 @@ class produtoDAO {
      * @param Cliente $cliente
      */
     public function editar(produto $produto) {
-         try {
+        try {
             $sql = "UPDATE `produto` SET "
-                    . "`nome`=:nomeProduto,`fabricante`=:fabricante, "
-                    . "`quantidade`=:quantidade,`preco`=:preco "
-                    . "WHERE `id`=:idProduto";
+                    . "`nome`=:nome,`quantidade`=:quantidade,`preco`=:preco "
+                    . "WHERE `id_produto`=:idProduto";
             $stm = $this->pdo->prepare($sql);
-            $stm->bindValue("nomeProduto", $produto->getNomeProduto());
-            $stm->bindValue("fabricante", $produto->getFabricante());
+            $stm->bindValue("nome", $produto->getNome());
             $stm->bindValue("quantidade", $produto->getQuantidade());
             $stm->bindValue("preco", $produto->getPreco());
             $stm->bindValue("idProduto", $produto->getIdProduto());
+//                        echo $sql;
+//            var_dump($produto);
+//            exit();
+
             return $stm->execute();
         } catch (PDOException $exc) {
             echo $exc->getMessage();

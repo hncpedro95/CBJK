@@ -22,10 +22,8 @@ require_once '../util/funcaoData.php';
                     <tr class="info">
                         <th>ID do produto</th>
                         <th>Nome do produto</th>
-                        <th>Fabricante</th>
                         <th>Quantidade</th>
                        <th>Preço</th>
-                       <th>Foto</th>
                        
                        <th style="text-align: center;">Opções</th>
                                           
@@ -38,15 +36,13 @@ require_once '../util/funcaoData.php';
 
                 foreach ($produtos as $produto) {
                     echo "<tr>";
-                    echo "  <td>{$produto->id}</td>";
+                    echo "  <td>{$produto->id_produto}</td>";
                     echo "  <td>{$produto->nome}</td>";
-                    echo "  <td>{$produto->fabricante}</td>";
                     echo "  <td>{$produto->quantidade}</td>";
                     echo "  <td>{$produto->preco}</td>";
-                    echo '<td> <img width="100" height="60" src="imagens/fotosProdutos/'.$produto->foto.'"  ></td>';
                     echo "  <td style='text-align: center;'>"
-                        . "   <a  href='../controle/excluirProduto.php?idProduto={$produto->id}'>Excluir</a>"
-                        . "   &nbsp; &nbsp;<a href='formAlterarProduto.php?idProduto={$produto->id}'>Alterar</a>"
+                        . "   <a  href='../controle/excluirProduto.php?idProduto={$produto->id_produto}'>Excluir</a>"
+                        . "   &nbsp; &nbsp;<a href='formAlterarProduto.php?idProduto={$produto->id_produto}'>Alterar</a>"
                         . " </td>";
                     echo "</tr>";
                 }
