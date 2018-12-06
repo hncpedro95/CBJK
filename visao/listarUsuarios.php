@@ -10,6 +10,8 @@ require_once '../util/funcaoData.php';
         <link rel="stylesheet" type="text/css" href="./css/estilo.css">
         <!-- Bootstrap (currently v3.3.7) CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
         <title>Lista de Usuários</title>
     </head>
     <body>
@@ -45,8 +47,8 @@ require_once '../util/funcaoData.php';
                         echo "  <td> {$usuario->login} </td>";
                         echo "  <td> {$usuario->perfil} </td>";
                         echo "  <td>" . dateUStoDateBR($usuario->dt_cadastro) . "</td>";
-                         echo "  <td><a class='btn btn-danger' href='../controle/excluirUsuario.php?idusuario={$usuario->id_usuario}'>Excluir</a></td>";
-                          echo "  <td><a class='btn btn-secondary'href='formAlterarUsuario.php?idusuario={$usuario->id_usuario}'>Alterar</a></td>";
+                         echo "  <td><a class='fa fa-trash text-danger'style='font-size:2rem' href='../controle/excluirUsuario.php?idusuario={$usuario->id_usuario}'></a></td>";
+                          echo "  <td><a class='fa fa-pencil'style='font-size:2rem'href='formAlterarUsuario.php?idusuario={$usuario->id_usuario}'></a></td>";
                         echo "</tr>";
                     }
                     ?>

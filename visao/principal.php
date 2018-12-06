@@ -92,9 +92,9 @@ include '../controle/validarLogin.php';
                             <span class="nav-link-text">Produtos</span>
                         </a>
                         <ul class="sidenav-second-level collapse" id="produtos">
-<!--                            <li>
-                                <a class="fa fa-fw fa-list" href="listarClientes.php" target="centro">&nbsp;Listar</a>
-                            </li>-->
+                            <li>
+                                <a class="fa fa-fw fa-list" href="listarProduto.php" target="centro">&nbsp;Listar</a>
+                            </li>
                             <li>
                                 <a class="fa fa-fw fa-plus" href="formCadastrarProduto.php" target="centro">&nbsp;Cadastrar</a>
                             </li>

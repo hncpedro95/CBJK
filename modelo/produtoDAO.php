@@ -53,7 +53,7 @@ class produtoDAO {
      */
     public function excluir($idProduto) {
          try {
-            $stm = $this->pdo->prepare("DELETE FROM `produto` WHERE `id`=:idProduto");
+            $stm = $this->pdo->prepare("DELETE FROM `produto` WHERE `id_produto`=:idProduto");
             $stm->bindValue("idProduto", $idProduto);
             return $stm->execute();
         } catch (PDOException $exc) {
@@ -68,9 +68,9 @@ class produtoDAO {
     public function getProduto($idProduto) {
          try {
             $sql="SELECT "
-                . "`id`, `nome`, `fabricante`, `quantidade`, `preco`, `foto`"
+                . "`id_produto`, `nome`, `quantidade`, `preco` "
                 . "FROM `produto` "
-                . "WHERE id=:idProduto";
+                . "WHERE id_produto=:idProduto";
             $stm = $this->pdo->prepare($sql);
             $stm->bindValue("idProduto", $idProduto);
             $stm->execute();
@@ -89,12 +89,11 @@ class produtoDAO {
     public function editar(produto $produto) {
          try {
             $sql = "UPDATE `produto` SET "
-                    . "`nome`=:nomeProduto,`fabricante`=:fabricante, "
+                    . "`nome`=:nomeProduto, "
                     . "`quantidade`=:quantidade,`preco`=:preco "
-                    . "WHERE `id`=:idProduto";
+                    . "WHERE `id_produto`=:idProduto";
             $stm = $this->pdo->prepare($sql);
-            $stm->bindValue("nomeProduto", $produto->getNomeProduto());
-            $stm->bindValue("fabricante", $produto->getFabricante());
+            $stm->bindValue("nomeProduto", $produto->getNome());
             $stm->bindValue("quantidade", $produto->getQuantidade());
             $stm->bindValue("preco", $produto->getPreco());
             $stm->bindValue("idProduto", $produto->getIdProduto());

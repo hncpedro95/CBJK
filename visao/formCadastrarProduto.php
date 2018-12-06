@@ -41,7 +41,7 @@
 
                 <input type="submit" class="btn btn-success" value="Cadastrar"/>
                 <input type="reset" class="btn btn-primary"  value="Limpar">
-                <a href="listarProduto.php.php"><input type="button" class="btn btn-primary" value="Voltar"/></a>                                            
+                <a href="listarProduto.php"><input type="button" class="btn btn-primary" value="Voltar"/></a>                                            
 
             </form>
         </div>

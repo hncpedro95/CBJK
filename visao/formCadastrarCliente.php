@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="cpf">CPF:</label>
-                        <input type="text" name="cpf" class="form-control" id="cpf" required>
+                        <input type="text" name="cpf" class="form-control " id="cpf" required>
                         <div class="invalid-feedback">
                             Digite um número de CPF valido!
                         </div>
