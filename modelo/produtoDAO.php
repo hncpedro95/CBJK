@@ -7,7 +7,7 @@ class produtoDAO {
 
     public $pdo = null;
 
-     function __construct() {
+    function __construct() {
         $this->pdo = Conexao::getConexao();
     }
 
@@ -15,7 +15,7 @@ class produtoDAO {
      * Retorna todos os clientes existentes no banco de dados
      */
     public function listarTodos() {
-         try {
+        try {
             $sql="SELECT * FROM `produto` ";
             $stm = $this->pdo->prepare($sql);
             $stm->execute();
@@ -31,18 +31,18 @@ class produtoDAO {
      * @param produto $produto
      */
     public function cadastrar(produto $produto) {
-    
-    try {
-        //var_dump($cliente);
-        $sql = "INSERT INTO `produto`(`nome`, `quantidade`, `preco` ) "
+
+        try {
+            //var_dump($cliente);
+            $sql = "INSERT INTO `produto`(`nome`, `quantidade`, `preco` ) "
                     . "VALUES (:nome, :quantidade,:preco )";
-        //echo $sql;       
-        //exit();
+            //echo $sql;       
+            //exit();
             $stm = $this->pdo->prepare($sql);
             $stm->bindValue("nome", $produto->getNome());
             $stm->bindValue("quantidade", $produto->getQuantidade());
             $stm->bindValue("preco", $produto->getPreco());
-         return $stm->execute();
+            return $stm->execute();
         } catch (PDOException $exc) {
             echo $exc->getMessage();
         }
@@ -87,7 +87,7 @@ class produtoDAO {
      * @param Cliente $cliente
      */
     public function editar(produto $produto) {
-         try {
+        try {
             $sql = "UPDATE `produto` SET "
                     . "`nome`=:nomeProduto, "
                     . "`quantidade`=:quantidade,`preco`=:preco "

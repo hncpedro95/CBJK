@@ -12,13 +12,8 @@ class produto {
         $this->quantidade = $quantidade;
         $this->preco = $preco;
     }
-
     function getIdProduto() {
         return $this->idProduto;
-    }
-
-    function setIdProduto($idProduto) {
-        $this->idProduto = $idProduto;
     }
 
     function getNome() {
@@ -33,6 +28,10 @@ class produto {
         return $this->preco;
     }
 
+    function setIdProduto($idProduto) {
+        $this->idProduto = $idProduto;
+    }
+
     function setNome($nome) {
         $this->nome = $nome;
     }
@@ -45,6 +44,8 @@ class produto {
         $this->preco = $preco;
     }
 
+
+   
 }
 
 ?>

@@ -13,6 +13,7 @@ $sucesso = $produtoDAO->editar($produtoAlterado);
 
 if ($sucesso) {
     $msg = "Produto atualizado com sucesso!";
+
     header('Location: ../visao/formAlterarProduto.php?idProduto=' . $idProduto . '&msg=' . $msg);
 }
 /**
