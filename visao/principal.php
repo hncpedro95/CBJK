@@ -7,6 +7,7 @@ include '../controle/validarLogin.php';
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" type="image/png" href="../Prototipos/Prototipos/cbjk2.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Cestas Basicas JK</title>
         <!-- Bootstrap core CSS-->
@@ -142,6 +143,7 @@ include '../controle/validarLogin.php';
                 <div class="embed-responsive embed-responsive-1by1">
 
                     <iframe  class="embed-responsive-item" name="centro" src="index.php"></iframe>
+
                 </div>
                 <footer class="sticky-footer">
                     <div class="container">
