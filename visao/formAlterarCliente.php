@@ -16,19 +16,11 @@ require_once '../modelo/ClienteDAO.php';
         $clienteDAO = new ClienteDAO();
         $cliente = $clienteDAO->getCliente($idCliente);
         ?>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="principal.php" target="_parent">Início</a>
-            </li>
-            <li class="breadcrumb-item "> <a href="#">Clientes</a></li>
-            <li class="breadcrumb-item active"> Listar</li>
-
-        </ol>
-        <div class="container">
+        <!--<div class="container">-->
             <div class="well alert alert-dark text-center" ><strong>Alterar Cliente</strong></div> 
             <form action="../controle/alterarCliente.php" method="post">
                 <input type="hidden" name="idcliente" value="<?php echo $cliente->id_cliente; ?>"/>
-
+        <div class="card-body">
                 <div class="form-row">
                     <div class="col-md-8 mb-3">
                         <label for="nome">Nome Completo:</label>

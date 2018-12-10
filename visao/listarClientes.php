@@ -14,7 +14,7 @@ require_once '../util/funcaoData.php';
         <!-- Core plugin JavaScript-->
         <script src="js/jquery.easing.min.js"></script>
         <!-- Page level plugin JavaScript-->
-        <script src="js/jquery.dataTables.js">        </script>
+        <script src="js/jquery.dataTables.js"></script>
 
         <script src="js/dataTables.bootstrap4.js"></script>
         <!-- Custom scripts for all pages-->
@@ -33,14 +33,9 @@ require_once '../util/funcaoData.php';
         <title>Lista de Clientes</title>        
     </head>
     <body id="page-top">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="principal.php" target="_parent">Início</a>
-            </li>
-            <li class="breadcrumb-item "> <a href="#">Clientes</a></li>
-            <li class="breadcrumb-item active"> Listar</li>
-        </ol>
+
         <div class="well alert alert-dark text-center" ><strong>Lista de Clientes</strong></div> 
+
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
