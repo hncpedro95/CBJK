@@ -72,10 +72,10 @@ include '../controle/validarLogin.php';
                         </a>
                         <ul class="sidenav-second-level collapse" id="collapseUsuarios">
                             <li>
-                                <a href="listarUsuarios.php" target="centro">Listar</a>
+                                <a class="fa fa-fw fa-list" href="listarUsuarios.php" target="centro">&nbsp;Listar</a>
                             </li>
                             <li>
-                                <a href="formCadastrarUsuario.php "target="centro">Cadastrar</a>
+                                <a class="fa fa-fw fa-plus" href="formCadastrarUsuario.php "target="centro">&nbsp;Cadastrar</a>
                                 
                             </li>
                         </ul>
