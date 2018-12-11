@@ -16,3 +16,10 @@ ALTER TABLE `cliente` CHANGE `telefone` `telefone` CHAR(14) CHARACTER SET latin1
 
 --Criando Tabela Produto 29/11/2018
 CREATE TABLE `cbjk`.`produto` ( `id_produto` INT(5) NOT NULL AUTO_INCREMENT , `nome` VARCHAR(150) NOT NULL , `quantidade` INT(5) NOT NULL , `preco` DECIMAL(10) NOT NULL , PRIMARY KEY (`id_produto`)) ENGINE = InnoDB;
+
+--Criando a tabela de venda e alterando as chaves 11/12/2018
+CREATE TABLE `cbjk`.`venda` ( `id_venda` INT(40) NOT NULL , `id_cliente` INT(40) NOT NULL , `nome_cliente` VARCHAR(200) NOT NULL , `id_produto` INT(40) NOT NULL , `nome_produto` VARCHAR(300) NOT NULL , `quantidade` INT(150) NOT NULL , `valor_total` VARCHAR(200) NOT NULL , `data` DATE NOT NULL , `hora` TIME(6) NOT NULL ) ENGINE = InnoDB;
+ALTER TABLE `venda` ADD PRIMARY KEY(`id_venda`);
+ALTER TABLE `venda` CHANGE `id_venda` `id_venda` INT(40) NOT NULL AUTO_INCREMENT;
+
+

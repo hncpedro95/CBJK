@@ -83,9 +83,6 @@ require_once '../util/funcaoData.php';
                     echo "<div class='alert alert-success'>", $_GET["msg"], "</div>";
                 }
                 ?>
-
-
-
             </div>
         </div>
         <a class="scroll-to-top rounded" href="#page-top">
