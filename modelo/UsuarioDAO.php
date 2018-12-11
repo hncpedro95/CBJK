@@ -64,28 +64,28 @@ class UsuarioDAO {
         }
     }
     
-    public function editar(Usuario $usuario){
-        try {
-            $sql = "UPDATE `usuario` SET "
-                    . "`nome`=:nome,`login`=:login, "
-                    . "`senha`=:senha,`id_perfil`=:id_perfil ";
-            if (empty(",foto=:foto ")) {
-//                    ." ,foto=:foto "
-            "WHERE `id_usuario`=:idUsuario";}
-            $stm = $this->pdo->prepare($sql);
-            $stm->bindValue("nome", $usuario->getNome());
-            $stm->bindValue("login", $usuario->getLogin());
-            $stm->bindValue("senha", $usuario->getSenha());
-            $stm->bindValue("id_perfil", $usuario->getIdPerfil());
-            $stm->bindValue("idUsuario", $usuario->getIdUsuario());
-            if($stm->bindValue("foto", $usuario->getFoto())){
-            }
-            return $stm->execute();
-        } catch (PDOException $exc);{
-        echo $exc->getMessage();
-        
-        
-    }}
+//    public function editar(Usuario $usuario){
+//        try {
+//            $sql = "UPDATE `usuario` SET "
+//                    . "`nome`=:nome,`login`=:login, "
+//                    . "`senha`=:senha,`id_perfil`=:id_perfil ";
+//            if (empty(",foto=:foto ")) {
+////                    ." ,foto=:foto "
+//            "WHERE `id_usuario`=:idUsuario";}
+//            $stm = $this->pdo->prepare($sql);
+//            $stm->bindValue("nome", $usuario->getNome());
+//            $stm->bindValue("login", $usuario->getLogin());
+//            $stm->bindValue("senha", $usuario->getSenha());
+//            $stm->bindValue("id_perfil", $usuario->getIdPerfil());
+//            $stm->bindValue("idUsuario", $usuario->getIdUsuario());
+//            if($stm->bindValue("foto", $usuario->getFoto())){
+//            }
+//            return $stm->execute();
+//        } catch (PDOException $exc);{
+//        echo $exc->getMessage();
+//        
+//        
+//    }}
     
     public function excluir($idUsuario){
         try {

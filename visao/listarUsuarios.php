@@ -11,21 +11,20 @@ require_once '../util/funcaoData.php';
         <!-- Bootstrap (currently v3.3.7) CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
         <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <script src="js/jquery.dataTables.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/sb-admin-datatables.min.js"></script>
+        <script src="js/dataTables.bootstrap4.js"></script>
+        <link href="css/dataTables.bootstrap4.css" rel="stylesheet">
 
         <title>Lista de Usuários</title>
     </head>
     <body>
     <center>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="principal.php" target="_parent">Início</a>
-            </li>
-            <li class="breadcrumb-item "> <a href="#">Usuários</a></li>
-            <li class="breadcrumb-item active"> Listar</li>
-        </ol>
+
         <div class="container">
-             <div class="well alert alert-dark text-center" ><strong>Lista de Usuários</strong></div> 
-            <table class="table table-bordered table-hover">
+            <div class="well alert alert-dark text-center" ><strong>Lista de Usuários</strong></div> 
+            <table id="dataTable"class="table table-bordered table-hover">
                 <thead>
                     <tr class="info">
                         <th>Nome </th>
@@ -37,28 +36,29 @@ require_once '../util/funcaoData.php';
                         <th>Alterar </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
-                    $UsuarioDAO = new UsuarioDAO();
-                    $Usuarios = $UsuarioDAO->listarTodos();
-                    foreach ($Usuarios as $usuario) {
-                        echo "<tr>";
-                        echo "  <td> {$usuario->nome} </td>";
-                        echo "  <td> {$usuario->login} </td>";
-                        echo "  <td> {$usuario->perfil} </td>";
-                        echo "  <td>" . dateUStoDateBR($usuario->dt_cadastro) . "</td>";
-                         echo "  <td><a class='fa fa-trash text-danger'style='font-size:2rem' href='../controle/excluirUsuario.php?idusuario={$usuario->id_usuario}'></a></td>";
-                          echo "  <td><a class='fa fa-pencil'style='font-size:2rem'href='formAlterarUsuario.php?idusuario={$usuario->id_usuario}'></a></td>";
-                        echo "</tr>";
-                    }
-                    ?>
-                </tbody>
+
+                <?php
+                $UsuarioDAO = new UsuarioDAO();
+                $Usuarios = $UsuarioDAO->listarTodos();
+                foreach ($Usuarios as $usuario) {
+                    echo "<tr>";
+                    echo "  <td> {$usuario->nome} </td>";
+                    echo "  <td> {$usuario->login} </td>";
+                    echo "  <td> {$usuario->perfil} </td>";
+                    echo "  <td>" . dateUStoDateBR($usuario->dt_cadastro) . "</td>";
+                    echo "  <td><a class='fa fa-trash text-danger'style='font-size:2rem' href='../controle/excluirUsuario.php?idusuario={$usuario->id_usuario}'></a></td>";
+                    echo "  <td><a class='fa fa-pencil'style='font-size:2rem'href='formAlterarUsuario.php?idusuario={$usuario->id_usuario}'></a></td>";
+                    echo "</tr>";
+                }
+                ?>
+
             </table>
             <?php
             if (!empty($_GET["msg"])) {
                 echo "<div class='alert alert-success'>", $_GET["msg"], "</div>";
             }
             ?>
+
         </div>
     </center>
 </body>

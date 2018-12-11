@@ -20,7 +20,7 @@ require_once '../util/funcaoData.php';
     <body>
         <br />
         <div class="container">
-            <div class="well"><strong>Lista de Produtos</strong></div> 
+            <div class="well alert alert-dark text-center"><strong>Lista de Produtos</strong></div> 
             <table id="dataTable"class="table table-bordered table-hover">
                 <thead>
                     <tr class="info">
