@@ -24,27 +24,44 @@
         <link href="css/sb-admin.css" rel="stylesheet">
         <link href="css/sb-admin.min.css" rel="stylesheet">
         <script>
-            function checkTime(i) {
-                if (i < 10) {
-                    i = "0" + i;
-                }
-                return i;
-            }
+//            function checkTime(i) {
+//                if (i < 10) {
+//                    i = "0" + i;
+//                }
+//                return i;
+//            }
+//
+//            function startTime() {
+//                var today = new Date();
+//                var h = today.getHours();
+//                var m = today.getMinutes();
+//                var s = today.getSeconds();
+//                // add a zero in front of numbers<10
+//                m = checkTime(m);
+//                s = checkTime(s);
+//                //document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+//                setTimeout(function(){ startTime(); }, 3000);
+//            }
+//            startTime();
 
-            function startTime() {
-                var today = new Date();
-                var h = today.getHours();
-                var m = today.getMinutes();
-                var s = today.getSeconds();
-                // add a zero in front of numbers<10
-                m = checkTime(m);
-                s = checkTime(s);
-                document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-                t = setTimeout(function () {
-                    startTime()
-                }, 500);
-            }
-            startTime();
+function relogio(){
+	var data = new Date();
+        var dia = data.getDate();
+        var mes = data.getMonth()+1;
+        var ano = data.getFullYear()
+	var horas = data.getHours();
+	var minutos = data.getMinutes();
+	var segundos = data.getSeconds();
+        (horas < 10 ? horas = "0"+horas: horas);
+        (minutos < 10 ? minutos = "0"+minutos: minutos);
+        (segundos < 10 ? segundos = "0"+segundos: segundos);
+        
+	var exibe = document.getElementById("time");
+	exibe.innerHTML = dia+"/"+mes+"/"+ano +" "+horas + ":" + minutos + ":" + segundos;
+}
+setInterval(relogio, 1000);
+
+
         </script>
 
         <title>Venda</title>        
@@ -136,11 +153,7 @@
                         <div class="small text-muted"><label><?php ?></label></div>
                         <hr>
                         <div class="h4 mb-0 text-warning">Data</div>
-                        <div id="time" class="small text-muted"><?php
-                            date_default_timezone_set('America/Sao_Paulo');
-                            $date = date('d/m/Y H:i:s');
-                            echo $date;
-                            ?>
+                        <div id="time" class="small text-muted">
                         </div>
                         <hr>
                         <div class="h4 mb-0 text-success">Subtotal</div>

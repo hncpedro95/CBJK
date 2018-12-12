@@ -131,8 +131,8 @@ include '../controle/validarLogin.php';
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                            <img class="rounded-circle"width="50" src="imagens/fotos/<?php echo $_SESSION["foto"];?>"/>
+                        <a style="padding: 0 8;" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                            <img class="rounded-circle"width="40" src="imagens/fotos/<?php echo $_SESSION["foto"];?>"/>
                         </a>
                     </li>
                 </ul>

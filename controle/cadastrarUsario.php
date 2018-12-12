@@ -4,6 +4,8 @@ require_once '../modelo/Usuario.php';
 require_once '../modelo/UsuarioDAO.php';
 
 // Recuperando os dados do formulario
+print_r($_POST);
+print_r($_FILES["foto"]);
 $nome = $_POST["nome"];
 $login = $_POST["login"];
 $senha = $_POST["senha"];
@@ -16,9 +18,10 @@ if ($qtdLogin ==0) {
 
     if (isset($_FILES["foto"])) {
         require_once '../modelo/Upload.class.php';
-        $upload = new upload($_FILES["foto"], "../visao/imagens/fotos/");
+        $upload = new upload($_FILES["foto"]['name'], "../visao/imagens/fotos/");
         if ($upload->processed) {
             $foto = $upload->file_dst_name;
+        
         }
     }
 
