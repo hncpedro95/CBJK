@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Nov-2018 às 21:21
+-- Generation Time: 12-Dez-2018 às 20:28
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -30,17 +30,29 @@ CREATE TABLE `cliente` (
   `id_cliente` int(11) NOT NULL,
   `nome` varchar(90) NOT NULL,
   `cpf` char(14) NOT NULL,
-  `dt_nascimento` date NOT NULL,
   `endereco` varchar(150) NOT NULL,
   `numero` varchar(5) NOT NULL,
   `complemento` varchar(150) DEFAULT NULL,
+  `bairro` varchar(50) NOT NULL,
   `estado` char(2) NOT NULL,
   `cidade` varchar(50) NOT NULL,
-  `telefone` char(14) NOT NULL,
-  `celular` char(15) DEFAULT NULL,
+  `telefone` char(14) DEFAULT NULL,
+  `celular` char(15) NOT NULL,
   `whatsapp` char(1) NOT NULL,
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `itens_venda`
+--
+
+CREATE TABLE `itens_venda` (
+  `id_produto` int(5) NOT NULL,
+  `id_venda` int(40) NOT NULL,
+  `quantidade` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -58,8 +70,21 @@ CREATE TABLE `perfil` (
 --
 
 INSERT INTO `perfil` (`id_perfil`, `nome`) VALUES
-(1, 'Administrador'),
-(2, 'Usuário');
+(1, 'administrador'),
+(2, 'usuario');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produto`
+--
+
+CREATE TABLE `produto` (
+  `id_produto` int(5) NOT NULL,
+  `nome` varchar(150) NOT NULL,
+  `quantidade` int(5) NOT NULL,
+  `preco` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -82,13 +107,22 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome`, `foto`, `login`, `senha`, `id_perfil`, `dt_cadastro`) VALUES
-(2, 'joao', NULL, 'admin', '202cb962ac59075b964b07152d234b70', 1, '2018-10-01'),
-(3, 'João Pedro', NULL, 'teste', '202cb962ac59075b964b07152d234b70', 2, '2018-11-01'),
-(5, 'Teste', NULL, 'abc', '202cb962ac59075b964b07152d234b70', 2, '2018-10-31'),
-(6, 'Teste', NULL, 'teste3', '202cb962ac59075b964b07152d234b70', 2, '2018-10-31'),
-(7, 'aaa', NULL, 'bbb', '202cb962ac59075b964b07152d234b70', 1, '2018-11-01'),
-(8, 'João Pedro Batista de Oliveira', 'calopsita_3.png', 'asdf', '202cb962ac59075b964b07152d234b70', 1, '2018-11-01'),
-(10, 'Pedro henrique ', '3.jpg', '111', '202cb962ac59075b964b07152d234b70', 2, '2018-11-14');
+(2, 'Pedro Henrique do Nascimento Chaves', 'fasdfsdfa.png', 'admin', '202cb962ac59075b964b07152d234b70', 1, '2018-12-12');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `venda`
+--
+
+CREATE TABLE `venda` (
+  `id_venda` int(40) NOT NULL,
+  `numero_pedido` char(8) NOT NULL,
+  `valor_total` varchar(200) NOT NULL,
+  `data` datetime NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -98,8 +132,14 @@ INSERT INTO `usuario` (`id_usuario`, `nome`, `foto`, `login`, `senha`, `id_perfi
 -- Indexes for table `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`id_cliente`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD PRIMARY KEY (`id_cliente`);
+
+--
+-- Indexes for table `itens_venda`
+--
+ALTER TABLE `itens_venda`
+  ADD PRIMARY KEY (`id_produto`,`id_venda`),
+  ADD KEY `fk_produto_has_venda_venda1` (`id_venda`);
 
 --
 -- Indexes for table `perfil`
@@ -108,11 +148,25 @@ ALTER TABLE `perfil`
   ADD PRIMARY KEY (`id_perfil`);
 
 --
+-- Indexes for table `produto`
+--
+ALTER TABLE `produto`
+  ADD PRIMARY KEY (`id_produto`);
+
+--
 -- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_usuario`),
-  ADD KEY `id_perfil` (`id_perfil`);
+  ADD KEY `usuario_ibfk_1` (`id_perfil`);
+
+--
+-- Indexes for table `venda`
+--
+ALTER TABLE `venda`
+  ADD PRIMARY KEY (`id_venda`),
+  ADD KEY `fk_venda_cliente1` (`id_cliente`),
+  ADD KEY `fk_venda_usuario1` (`id_usuario`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -122,17 +176,27 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `perfil`
 --
 ALTER TABLE `perfil`
   MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `produto`
+--
+ALTER TABLE `produto`
+  MODIFY `id_produto` int(5) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `venda`
+--
+ALTER TABLE `venda`
+  MODIFY `id_venda` int(40) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -141,7 +205,7 @@ ALTER TABLE `usuario`
 -- Limitadores para a tabela `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_perfil`) REFERENCES `bd-mvc`.`perfil` (`id_perfil`);
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_perfil`) REFERENCES `perfil` (`id_perfil`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
