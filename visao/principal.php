@@ -57,10 +57,10 @@ include '../controle/validarLogin.php';
                         </a>
                         <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                             <li>
-                                <a class="fa fa-fw fa-thumbs-down"  href="listarProduto.php" target="centro">&nbsp;Devedores</a>
+                                <a class="fa fa-fw fa-thumbs-down"  href="devedores.php" target="centro">&nbsp;Devedores</a>
                             </li>
                             <li>
-                                <a class="fa fa-fw fa-check-circle" href="formCadastrarProduto.php "target="centro">&nbsp;Pagos</a>
+                                <a class="fa fa-fw fa-check-circle" href="pagos.php "target="centro">&nbsp;Pagos</a>
                             </li>
                         </ul>
                     </li>
