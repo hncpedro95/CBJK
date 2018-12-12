@@ -27,8 +27,8 @@
                         </div>
                     </div>
                     <div class="col-md-1 mb-2">
-                        <label for="validationCustom01">Quantidade:</label>
-                        <input name="quantidade"type="text" class="form-control" id="quantidade"  required>
+                        <label for="validationCustom01">Qtd:</label>
+                        <input name="quantidade"type="text" onkeyup="somenteNumeros(this);" class="form-control" id="quantidade"  required>
                         <div class="valid-feedback">
                             Válido !
                         </div>
@@ -55,6 +55,17 @@
                 $('#preco').maskMoney();
             })
         </script>
+        
+        <script>
+    function somenteNumeros(num) {
+        var er = /[^0-9.]/;
+        er.lastIndex = 0;
+        var campo = num;
+        if (er.test(campo.value)) {
+          campo.value = "";
+        }
+    }
+ </script>
     <center>
         <?php
         if (!empty($_GET["msg"])) {

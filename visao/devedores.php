@@ -35,7 +35,7 @@ require_once '../util/funcaoData.php';
                     </tr>
                 </thead>
 
-                //<?php
+                <?php
 //                $produtoDAO = new produtoDAO();
 //                $produtos = $produtoDAO->listarTodos();
 //
