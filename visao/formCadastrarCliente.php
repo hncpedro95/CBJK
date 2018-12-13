@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-2 mb-3">
                     <label for="numero">Nº:</label>
-                    <input type="text" name="numero" class="form-control" id="numero" required>
+                    <input type="text" name="numero" onkeyup="somenteNumeros(this);" class="form-control" id="numero" required>
                     <div class="invalid-feedback">
                         Digite um número de endereço!
                     </div>
@@ -141,6 +141,17 @@
     ?>
 </center>
 <script>
+    function somenteNumeros(num) {
+        var er = /[^0-9.]/;
+        er.lastIndex = 0;
+        var campo = num;
+
+        if (er.test(campo.value)) {
+            campo.value = "";
+        }
+    }
+</script>
+<script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {
         'use strict';
@@ -159,6 +170,7 @@
             });
         }, false);
     })();
+
 </script>
 </body>
 </html>

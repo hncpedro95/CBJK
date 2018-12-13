@@ -18,33 +18,7 @@ include '../controle/validarLogin.php';
             <div class="well  alert alert-dark text-center"><strong>CADASTRO DE USUÁRIO</strong></div> 
             <form action="../controle/cadastrarUsario.php" method="post" name="cadastrousuario" method="post" enctype="multipart/form-data">
 
-<!--                    <tr>
-        <td>Nome do Usuário:</td>
-        <td><input type="text" name="nome" size="30" maxlength="90"/></td>
-    </tr>-->
-<!--                    <tr>
-        <td>Login:</td>
-        <td><input type="text" name="login" size="10" maxlength="45"/></td>
-    </tr>
-    <tr>
-        <td>Senha:</td>
-        <td><input type="password" name="senha" size="10" maxlength="10"/></td>
-    </tr>
-    <tr>
-        <td>Perfil:</td>
-        <td> 
-            <input type="radio" class="" value="1"name="perfil"/>Administrador
-            <input type="radio" value="2" name="perfil"/>Usuário
-        </td>
-    </tr>  
-    <tr>
-      <td>Foto do Usuário:</td>
-        <td>
-            
-            <input type="file"  name="foto">
-           
-        </td>
-    </tr> -->
+
 
                 <div class="form-row"> 
 
@@ -97,6 +71,7 @@ include '../controle/validarLogin.php';
                 </td>
             </form> 
         </div>
+   
         <!--</center>-->
     </body>
 </html>

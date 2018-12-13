@@ -48,8 +48,7 @@ require_once '../util/funcaoData.php';
                             <th>Cidade</th>
                             <th>Telefone</th>
                             <th>Whatsapp</th>
-                            <th>Excluir</th>
-                            <th>Alterar</th>
+                            <th style="text-align: center;">Opções</th>
                         </tr>
                     </thead>
 
@@ -59,12 +58,12 @@ require_once '../util/funcaoData.php';
 
                     foreach ($clientes as $cliente) {
                         echo "<tr>";
-                        echo "  <td>{$cliente->id_cliente}</td>";
+                        echo "  <td class='text-center'>{$cliente->id_cliente}</td>";
                         echo "  <td>{$cliente->nome}</td>";
                         echo "  <td>{$cliente->cpf}</td>";
                         echo "  <td>{$cliente->cidade}</td>";
                         echo "  <td>{$cliente->telefone}</td>";
-                        echo "  <td>";
+                        echo "  <td class='text-center'>";
                         if ($cliente->whatsapp == "s") {
 
                             echo 'Sim';
@@ -72,8 +71,10 @@ require_once '../util/funcaoData.php';
                             echo 'Não';
                         }
                         echo "</td>";
-                        echo "  <td class='text-center'><a  class='fa fa-trash text-danger'style='font-size:2rem'  href='../controle/excluirCliente.php?idcliente={$cliente->id_cliente}'></a></td>";
-                        echo "  <td class='text-center'><a class='fa fa-pencil'style='font-size:2rem'  href='formAlterarCliente.php?idcliente={$cliente->id_cliente}'></a></td>";
+                        echo "  <td class='text-center'>"
+                        . "     <a  class='fa fa-trash text-danger'style='font-size:2rem'  href='../controle/excluirCliente.php?idcliente={$cliente->id_cliente}'></a>";
+                        echo "  &nbsp; &nbsp;<a class='fa fa-pencil'style='font-size:2rem'  href='formAlterarCliente.php?idcliente={$cliente->id_cliente}'></a>"
+                        . "</td>";
                         echo "</tr>";
                     }
                     ?>
