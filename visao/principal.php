@@ -50,7 +50,7 @@ include '../controle/validarLogin.php';
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Finanças">
+<!--                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Finanças">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-dollar"></i>
                             <span class="nav-link-text">Finanças</span>
@@ -64,7 +64,7 @@ include '../controle/validarLogin.php';
                             </li>
                         </ul>
                     </li>
-                    
+                    -->
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Finanças">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseUsuarios" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-user"></i>
