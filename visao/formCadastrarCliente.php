@@ -5,7 +5,6 @@
         <!-- Bootstrap (currently v3.3.7) CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
         <title></title>
-   
     </head>
     <body>
         <div class="well alert alert-dark text-center" ><strong>Cadastro de Cliente</strong></div> 
