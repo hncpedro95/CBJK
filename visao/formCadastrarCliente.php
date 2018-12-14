@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="cpf">CPF:</label>
-                    <input type="text" name="cpf" class="form-control " id="cpf" required>
+                    <input type="text" maxlength="11"name="cpf" onkeyup="somenteNumeros(this);" class="form-control " id="cpf" required>
                     <div class="invalid-feedback">
                         Digite um número de CPF valido!
                     </div>
@@ -108,14 +108,14 @@
             <div class="form-row">    
                 <div class="col-md-5 mb-3">
                     <label for="telefone">Telefone:</label>
-                    <input type="text" name="telefone" class="form-control" id="telefone" >
+                    <input type="text" name="telefone" maxlength="12" onkeyup="somenteNumeros(this);" class="form-control" id="telefone" >
                     <div class="valid-feedback">
                         Não é obrigatório!
                     </div>
                 </div> 
                 <div class="col-md-5 mb-3">
                     <label for="celular">Celular:</label>
-                    <input type="text" name="celular" class="form-control" id="celular" required>
+                    <input type="text" name="celular" maxlength="11" onkeyup="somenteNumeros(this);" class="form-control" id="celular" required>
                     <div class="invalid-feedback">
                         Digite um número de celular valido!
                     </div>
@@ -151,6 +151,7 @@
         }
     }
 </script>
+
 <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {

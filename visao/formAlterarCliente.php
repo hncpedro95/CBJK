@@ -31,7 +31,7 @@ require_once '../modelo/ClienteDAO.php';
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="cpf">CPF:</label>
-                        <input type="text" value="<?php echo $cliente->cpf; ?>" name="cpf" class="form-control" id="cpf" required>
+                        <input type="text" maxlength="11" onkeyup="somenteNumeros(this);" value="<?php echo $cliente->cpf; ?>" name="cpf" class="form-control" id="cpf" required>
                         <div class="invalid-feedback">
                             Digite um número de CPF valido!
                         </div>
@@ -49,7 +49,7 @@ require_once '../modelo/ClienteDAO.php';
                     </div>
                     <div class="col-md-2 mb-3">
                         <label for="numero">Nº:</label>
-                        <input type="text" value="<?php echo $cliente->numero; ?>" name="numero" class="form-control" id="numero" required>
+                        <input type="text" onkeyup="somenteNumeros(this);" value="<?php echo $cliente->numero; ?>" name="numero" class="form-control" id="numero" required>
                         <div class="invalid-feedback">
                             Digite um número de endereço!
                         </div>
@@ -117,14 +117,14 @@ require_once '../modelo/ClienteDAO.php';
                 <div class="form-row">    
                     <div class="col-md-5 mb-3">
                         <label for="telefone">Telefone:</label>
-                        <input type="text" value="<?php echo $cliente->telefone; ?>" name="telefone" class="form-control" id="telefone" >
+                        <input type="text" maxlength="11" onkeyup="somenteNumeros(this);" value="<?php echo $cliente->telefone; ?>" name="telefone" class="form-control" id="telefone" >
                         <div class="valid-feedback">
                             Não é obrigatório!
                         </div>
                     </div> 
                     <div class="col-md-5 mb-3">
                         <label for="celular">Celular:</label>
-                        <input type="text" value="<?php echo $cliente->celular; ?>" name="celular" class="form-control" id="celular" required>
+                        <input type="text" maxlength="11" onkeyup="somenteNumeros(this);" value="<?php echo $cliente->celular; ?>" name="celular" class="form-control" id="celular" required>
                         <div class="invalid-feedback">
                             Digite um número de celular valido!
                         </div>
@@ -148,5 +148,16 @@ require_once '../modelo/ClienteDAO.php';
         }
         ?>
     </center>
+                <script>
+    function somenteNumeros(num) {
+        var er = /[^0-9.]/;
+        er.lastIndex = 0;
+        var campo = num;
+
+        if (er.test(campo.value)) {
+            campo.value = "";
+        }
+    }
+</script>
 </body>
 </html>
