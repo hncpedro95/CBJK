@@ -3,7 +3,7 @@
 class Cliente {
 
     private $idCliente;
-    private $nome;
+    private $nome_cliente;
     private $cpf;
     private $endereco;
     private $id_usuario;
@@ -16,11 +16,8 @@ class Cliente {
     private $celular;
     private $whatsapp;
     
-            
-
-        function __construct($nome,$cpf, $endereco, $numero, $complemento, $bairro, $estado, $cidade,
-                $telefone, $celular, $whatsapp) {
-        $this->nome = $nome;
+    function __construct( $nome_cliente, $cpf, $endereco, $numero, $complemento, $bairro, $estado, $cidade, $telefone, $celular) {
+        $this->nome_cliente = $nome_cliente;
         $this->cpf = $cpf;
         $this->endereco = $endereco;
         $this->numero = $numero;
@@ -30,16 +27,14 @@ class Cliente {
         $this->cidade = $cidade;
         $this->telefone = $telefone;
         $this->celular = $celular;
-        $this->whatsapp = $whatsapp;
-        
-        
     }
-    function getIdCliente() {
+
+        function getIdCliente() {
         return $this->idCliente;
     }
 
-    function getNome() {
-        return $this->nome;
+    function getNome_cliente() {
+        return $this->nome_cliente;
     }
 
     function getCpf() {
@@ -61,15 +56,11 @@ class Cliente {
     function getComplemento() {
         return $this->complemento;
     }
+
     function getBairro() {
         return $this->bairro;
     }
 
-    function setBairro($bairro) {
-        $this->bairro = $bairro;
-    }
-
-    
     function getEstado() {
         return $this->estado;
     }
@@ -94,8 +85,8 @@ class Cliente {
         $this->idCliente = $idCliente;
     }
 
-    function setNome($nome) {
-        $this->nome = $nome;
+    function setNome_cliente($nome_cliente) {
+        $this->nome_cliente = $nome_cliente;
     }
 
     function setCpf($cpf) {
@@ -118,6 +109,10 @@ class Cliente {
         $this->complemento = $complemento;
     }
 
+    function setBairro($bairro) {
+        $this->bairro = $bairro;
+    }
+
     function setEstado($estado) {
         $this->estado = $estado;
     }
@@ -137,6 +132,8 @@ class Cliente {
     function setWhatsapp($whatsapp) {
         $this->whatsapp = $whatsapp;
     }
+
+
 
 
 }

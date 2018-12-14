@@ -39,7 +39,7 @@ require_once '../util/funcaoData.php';
                 $Usuarios = $UsuarioDAO->listarTodos();
                 foreach ($Usuarios as $usuario) {
                     echo "<tr>";
-                    echo "  <td class='text-center'> {$usuario->nome} </td>";
+                    echo "  <td class='text-center'> {$usuario->nome_usuario} </td>";
                     echo "  <td> {$usuario->login} </td>";
                     echo "  <td> {$usuario->perfil} </td>";
                     echo "  <td class='text-center'>" . dateUStoDateBR($usuario->dt_cadastro) . "</td>";

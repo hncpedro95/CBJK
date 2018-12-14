@@ -25,7 +25,7 @@ require_once '../modelo/UsuarioDAO.php';
                 <table class="table">
                     <tr>
                         <td>Nome do Usuário:</td>
-                        <td><input type="text" name="nome" size="30" maxlength="90" value="<?php echo $usuario->nome; ?>"/></td>
+                        <td><input type="text" name="nome" size="30" maxlength="90" value="<?php echo $usuario->nome_usuario; ?>"/></td>
                     </tr>
                     <tr>
                         <td>Login:</td>

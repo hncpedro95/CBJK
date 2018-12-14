@@ -42,7 +42,7 @@ require_once '../util/funcaoData.php';
                 foreach ($produtos as $produto) {
                     echo "<tr>";
                     echo "  <td class='text-center'> {$produto->id_produto} </td>";
-                    echo "  <td class='text-center'> {$produto->nome} </td>";
+                    echo "  <td class='text-center'> {$produto->nome_produto} </td>";
                     echo "  <td class='text-center'> {$produto->quantidade} </td>";
                     echo "  <td class='text-center'> {$produto->preco} </td>";
                     echo "  <td style='text-align: center;'>"

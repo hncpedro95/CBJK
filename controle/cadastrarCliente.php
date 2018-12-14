@@ -8,9 +8,9 @@ session_start();
  * depois irá instanciar um cliente de Cliente.php e repassar este objeto para classe modelo/ClienteDAO.php
  * através da função cadastrar($cliente), por ultimo redirecionar a página de volta para formulário /visao/listarUsuarios.php
  */
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
+//echo '<pre>';
+//print_r($_POST);
+//echo '</pre>';
 
 
 $nome = $_POST["nome"];
@@ -31,7 +31,6 @@ $whatsapp = $_POST["whatsapp"];
 $novoCliente = new Cliente($nome, $cpf, $endereco, $numero, $complemento, $bairro, $estado, $cidade,
         $telefone, $celular, $whatsapp);
 $novoCliente->setId_usuario($_SESSION["id_usuario"]);
-//var_dump($novoCliente);  exit();
 $clienteDAO = new ClienteDAO();
 $cadastrado = $clienteDAO->cadastrar($novoCliente);
 

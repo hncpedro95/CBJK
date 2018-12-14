@@ -59,7 +59,7 @@ require_once '../util/funcaoData.php';
                     foreach ($clientes as $cliente) {
                         echo "<tr>";
                         echo "  <td class='text-center'>{$cliente->id_cliente}</td>";
-                        echo "  <td>{$cliente->nome}</td>";
+                        echo "  <td>{$cliente->nome_cliente}</td>";
                         echo "  <td>{$cliente->cpf}</td>";
                         echo "  <td>{$cliente->cidade}</td>";
                         echo "  <td>{$cliente->telefone}</td>";

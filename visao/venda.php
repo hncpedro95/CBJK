@@ -36,6 +36,7 @@
         <link href="css/sb-admin.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+        <script src="js/jquery.maskMoney.js"></script>
         <script>
 //            function checkTime(i) {
 //                if (i < 10) {
@@ -73,9 +74,10 @@
                 exibe.innerHTML = dia + "/" + mes + "/" + ano + " " + horas + ":" + minutos + ":" + segundos;
             }
             setInterval(relogio, 1000);
-
-
+            
+           
         </script>
+      
 
         <title>Venda</title>        
     </head>
@@ -116,7 +118,7 @@
                                         <option value="">Selecione...</option>
                                         <?php
                                         foreach ($clientes as $cliente) {
-                                            echo "<option value='{$cliente->id_cliente}'>{$cliente->id_cliente}-{$cliente->nome}</option>";
+                                            echo "<option value='{$cliente->id_cliente}'>{$cliente->id_cliente}-{$cliente->nome_cliente}</option>";
                                         }
                                         ?>
                                     </select>
@@ -143,10 +145,10 @@
                                         <option value="">Selecione...</option>
                                         <?php
                                         foreach ($produtos as $produto) {
-                                            echo "<option value='{$produto->id_produto}'>{$produto->id_produto}-{$produto->nome}</option>";
+                                            echo "<option value='{$produto->id_produto}'>{$produto->id_produto}-{$produto->nome_produto}</option>";
                                         }
                                         foreach ($produtos as $produto) {
-                                            echo "<input type='hidden' id='nomeProduto{$produto->id_produto}' value='{$produto->nome}'>";
+                                            echo "<input type='hidden' id='nomeProduto{$produto->id_produto}' value='{$produto->nome_produto}'>";
                                             echo "<input type='hidden' id='estoqueProduto{$produto->id_produto}' value='{$produto->quantidade}'>";
                                             echo "<input type='hidden' id='valorProduto{$produto->id_produto}' value='{$produto->preco}'>";
                                         }
@@ -199,7 +201,7 @@
                         <div class="col-sm-3 text-center">
                             <div class="h4 mb-0 text-primary">Venda nº</div>
                             <div class="small text-muted"><label><?php echo $VendaDAO->getProximoNumeroVenda(); ?></label></div>
-                            <?php  echo "<input type='hidden' name='numeroVenda' value='{$VendaDAO->getProximoNumeroVenda()}'>"; ?>
+                            <?php echo "<input type='hidden' name='numeroVenda' value='{$VendaDAO->getProximoNumeroVenda()}'>"; ?>
 
                             <hr>
                             <div class="h4 mb-0 text-warning">Data</div>
@@ -207,7 +209,7 @@
                             </div>
                             <hr>
                             <div class="h4 mb-0 text-success">Total</div>
-                            <div class="small text-muted"><input type="text" id="campoTotalVenda" name="campoTotalVenda"></div>
+                            <div class="small text-muted"><input type="" id="campoTotalVenda" name="campoTotalVenda" disabled=""></div>
                         </div><!--
                     </div>-->
                     </div>

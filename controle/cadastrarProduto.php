@@ -12,7 +12,9 @@ session_start();
 $nome = $_POST["nome"];
 $quantidade = $_POST["quantidade"];
 $preco = $_POST["preco"];
-
+$preco = str_replace( "R$", "", $preco);
+$preco = str_replace( ".", "", $preco);
+$preco = str_replace( ",", ".", $preco);
 
 $novoProduto = new produto($nome,$quantidade,$preco);
 $novoProduto->setIdProduto($_SESSION["id_usuario"]);

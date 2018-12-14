@@ -13,7 +13,7 @@ class LoginDAO {
     public function login($login,$senha) {
         try {
             
-            $sql="SELECT u.`id_usuario`, u.`nome`, u.`login`,  p.`nome` as perfil, u.foto \n"
+            $sql="SELECT u.`id_usuario`, u.`nome_usuario`, u.`login`,  p.`nome` as perfil, u.foto \n"
                 . "FROM `usuario` AS u \n"
                 . "INNER JOIN perfil AS p ON (u.id_perfil=p.id_perfil) \n"
                 . "WHERE login=:login AND senha=:senha";

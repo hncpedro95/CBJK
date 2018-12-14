@@ -4,8 +4,8 @@ require_once '../modelo/Usuario.php';
 require_once '../modelo/UsuarioDAO.php';
 
 // Recuperando os dados do formulario
-print_r($_POST);
-print_r($_FILES["foto"]);
+//print_r($_POST);
+//print_r($_FILES["foto"]);
 $nome = $_POST["nome"];
 $login = $_POST["login"];
 $senha = $_POST["senha"];

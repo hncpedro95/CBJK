@@ -1,0 +1,12 @@
+{
+    "name": "user/cestas-jk",
+    "authors": [
+        {
+            "name": "hncpedro95",
+            "email": "hnc.pedro@gmail.com"
+        }
+    ],
+    "require": {
+        "mpdf/mpdf": "^7.1"
+    }
+}

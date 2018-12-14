@@ -3,28 +3,27 @@
 class Usuario {
 
     private $idUsuario;
-    private $nome;
+    private $nome_usuario;
     private $login;
     private $senha;
     private $idPerfil;
     private $dataCadastro;
     private $foto;
-    function __construct($nome, $login, $senha, $idPerfil, $foto) {
-        $this->nome = $nome;
+    
+    function __construct($nome_usuario, $login, $senha, $idPerfil, $dataCadastro) {
+        $this->nome_usuario = $nome_usuario;
         $this->login = $login;
         $this->senha = $senha;
         $this->idPerfil = $idPerfil;
-        $this->dataCadastro = date("Y-m-d");
-        $this->foto = $foto;
+        $this->dataCadastro = $dataCadastro;
     }
 
-    //Gets e Sets
     function getIdUsuario() {
         return $this->idUsuario;
     }
 
-    function getNome() {
-        return $this->nome;
+    function getNome_usuario() {
+        return $this->nome_usuario;
     }
 
     function getLogin() {
@@ -39,12 +38,20 @@ class Usuario {
         return $this->idPerfil;
     }
 
+    function getDataCadastro() {
+        return $this->dataCadastro;
+    }
+
+    function getFoto() {
+        return $this->foto;
+    }
+
     function setIdUsuario($idUsuario) {
         $this->idUsuario = $idUsuario;
     }
 
-    function setNome($nome) {
-        $this->nome = $nome;
+    function setNome_usuario($nome_usuario) {
+        $this->nome_usuario = $nome_usuario;
     }
 
     function setLogin($login) {
@@ -58,16 +65,9 @@ class Usuario {
     function setIdPerfil($idPerfil) {
         $this->idPerfil = $idPerfil;
     }
-    function getDataCadastro() {
-        return $this->dataCadastro;
-    }
 
     function setDataCadastro($dataCadastro) {
         $this->dataCadastro = $dataCadastro;
-    }
-
-    function getFoto() {
-        return $this->foto;
     }
 
     function setFoto($foto) {

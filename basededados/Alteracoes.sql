@@ -169,3 +169,6 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
+-- Tabela produto coluna preco de decimal para varchar 14/12
+ALTER TABLE `produto` CHANGE `preco` `preco` VARCHAR(10) NOT NULL;
+ALTER TABLE `produto` CHANGE `preco` `preco` VARCHAR(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;

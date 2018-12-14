@@ -23,7 +23,7 @@ if(isset($_FILES["foto"])){
 
 $usuario = new Usuario($nome, $login, $senhaAntiga, $idPerfil, $foto);
 $usuario->setIdUsuario($idUsuario);
-$usuario->setNome($nome);
+$usuario->setNome_usuario($nome);
 $usuario->setLogin($login);
 $usuario->setIdPerfil($idPerfil);
 

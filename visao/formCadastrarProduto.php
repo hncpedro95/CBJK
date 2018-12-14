@@ -19,7 +19,7 @@
 
 
                 <div class="form-row">
-                    <div class="col-md-10 mb-8">
+                    <div class="col-md-9 mb-8">
                         <label for="validationCustom01">Nome:</label>
                         <input name="nome"type="text" class="form-control" id="nome"  required>
                         <div class="valid-feedback">
@@ -33,9 +33,9 @@
                             Válido !
                         </div>
                     </div>
-                    <div class="col-md-1 mb-2">
+                    <div class="col-md-2 mb-4">
                         <label for="validationCustom01">Preço:</label>
-                        <input name="preco"type="text" class="form-control" id="preco"  required>
+                        <input name="preco"type="text"  class="form-control" id="preco"  required>
                         <div class="valid-feedback">
                             Válido !
                         </div>

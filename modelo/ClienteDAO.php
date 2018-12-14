@@ -34,14 +34,15 @@ class ClienteDAO {
     
     try {
         var_dump($cliente);
-        $sql = "INSERT INTO `cliente`(`nome`, `cpf`, `endereco`, `numero`, `complemento`, `bairro`, `estado`, `cidade`,"
+        $sql = "INSERT INTO `cliente`(`nome_cliente`, `cpf`, `endereco`, `numero`, `complemento`, `bairro`, `estado`, `cidade`,"
                 . "`telefone`, `celular`, `whatsapp`, `id_usuario`) "
                     . "VALUES (:nome,:cpf, :endereco, :numero, :complemento,:bairro, :estado, :cidade, :telefone,"
                 . ":celular, :whatsapp, :id_usuario)";
-        echo $sql;       
+        echo $sql;      
+        echo $cliente->getId_usuario();
 //        exit();
             $stm = $this->pdo->prepare($sql);
-            $stm->bindValue("nome", $cliente->getNome());
+            $stm->bindValue("nome", $cliente->getNome_cliente());
             $stm->bindValue("cpf", $cliente->getCpf());
             $stm->bindValue("endereco", $cliente->getEndereco());
             $stm->bindValue("numero", $cliente->getNumero());
@@ -79,7 +80,7 @@ class ClienteDAO {
     public function getCliente($idCliente) {
          try {
             $sql="SELECT "
-                . "`id_cliente`, `nome`, `cpf`, `endereco`, `numero`, `complemento`,`bairro`,`estado`, `cidade`, `telefone`, `celular`, `whatsapp` "
+                . "`id_cliente`, `nome_cliente`, `cpf`, `endereco`, `numero`, `complemento`,`bairro`,`estado`, `cidade`, `telefone`, `celular`, `whatsapp` "
                 . "FROM `cliente` "
                 . "WHERE id_cliente=:idCliente";
             $stm = $this->pdo->prepare($sql);
@@ -100,7 +101,7 @@ class ClienteDAO {
     public function alterar(Cliente $cliente) {
          try {
             $sql = "UPDATE `cliente` SET "
-                    . "`nome`=:nome,`cpf`=:cpf, "
+                    . "`nome_cliente`=:nome,`cpf`=:cpf, "
                     . "`endereco`=:endereco, "
                     . "`numero`=:numero, `complemento`=:complemento,`bairro`=:bairro, "
                     . "`estado`=:estado, `cidade`=:cidade, "
@@ -110,7 +111,7 @@ class ClienteDAO {
 //            var_dump($cliente);
 //            exit();
             $stm = $this->pdo->prepare($sql);
-            $stm->bindValue("nome", $cliente->getNome());
+            $stm->bindValue("nome", $cliente->getNome_cliente());
             $stm->bindValue("cpf", $cliente->getCpf());
             $stm->bindValue("endereco", $cliente->getEndereco());
             $stm->bindValue("numero", $cliente->getNumero());

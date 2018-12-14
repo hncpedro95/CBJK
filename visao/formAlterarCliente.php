@@ -24,7 +24,7 @@ require_once '../modelo/ClienteDAO.php';
                 <div class="form-row">
                     <div class="col-md-8 mb-3">
                         <label for="nome">Nome Completo:</label>
-                        <input type="text" value="<?php echo $cliente->nome; ?>" name="nome" class="form-control" id="nome"  required>
+                        <input type="text" value="<?php echo $cliente->nome_cliente; ?>" name="nome" class="form-control" id="nome"  required>
                         <div class="invalid-feedback">
                             Digite o nome do cliente!
                         </div>

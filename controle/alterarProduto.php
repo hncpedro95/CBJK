@@ -1,10 +1,17 @@
 <?php
+
 require_once '../modelo/produto.php';
 require_once '../modelo/produtoDAO.php';
 
 $idProduto = $_POST["idProduto"];
+$preco = $_POST["preco"];
+if (strstr($preco, "R$")) {
+    $preco = str_replace("R$", "", $preco);
+    $preco = str_replace(".", "", $preco);
+    $preco = str_replace(",", ".", $preco);
+}
 
-$produtoAlterado = new produto($_POST["nome"], $_POST["quantidade"], $_POST["preco"]);
+$produtoAlterado = new produto($_POST["nome"], $_POST["quantidade"], $preco);
 $produtoAlterado->setIdProduto($idProduto);
 
 $produtoDAO = new produtoDAO();

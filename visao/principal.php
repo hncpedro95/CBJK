@@ -50,22 +50,22 @@ include '../controle/validarLogin.php';
                             </li>
                         </ul>
                     </li>
-<!--                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Finanças">
-                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-                            <i class="fa fa-fw fa-dollar"></i>
-                            <span class="nav-link-text">Finanças</span>
-                        </a>
-                        <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-                            <li>
-                                <a class="fa fa-fw fa-thumbs-down"  href="devedores.php" target="centro">&nbsp;Devedores</a>
-                            </li>
-                            <li>
-                                <a class="fa fa-fw fa-check-circle" href="pagos.php "target="centro">&nbsp;Pagos</a>
-                            </li>
-                        </ul>
-                    </li>
+                    <!--                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Finanças">
+                                            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+                                                <i class="fa fa-fw fa-dollar"></i>
+                                                <span class="nav-link-text">Finanças</span>
+                                            </a>
+                                            <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+                                                <li>
+                                                    <a class="fa fa-fw fa-thumbs-down"  href="devedores.php" target="centro">&nbsp;Devedores</a>
+                                                </li>
+                                                <li>
+                                                    <a class="fa fa-fw fa-check-circle" href="pagos.php "target="centro">&nbsp;Pagos</a>
+                                                </li>
+                                            </ul>
+                                        </li>
                     -->
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Finanças">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuarios">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseUsuarios" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-user"></i>
                             <span class="nav-link-text">Usuários</span>
@@ -76,17 +76,25 @@ include '../controle/validarLogin.php';
                             </li>
                             <li>
                                 <a class="fa fa-fw fa-plus" href="formCadastrarUsuario.php "target="centro">&nbsp;Cadastrar</a>
-                                
+
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Venda">
-                        <a class="nav-link" href="Venda.php" target="centro">
-                            <i class="fa fa-fw fa-shopping-cart"></i>
-                            <span class="nav-link-text"> Venda</span>
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse"  href="#venda" target="centro">
+                            <i class="fa fa-fw fa-dollar"></i>
+                            <span class="nav-link-text"> Vendas</span>
                         </a>
+                        <ul class="sidenav-second-level collapse" id="venda">
+                            <li>
+                                <a class="fa fa-fw fa-shopping-cart" href="venda.php" target="centro">&nbsp;Vender</a>
+                            </li>
+                            <li>
+                                <a class="fa fa-fw fa-file-text" href="relatorio.php" target="centro">&nbsp;Relátorio</a>
+                            </li>
+                        </ul>
                     </li>
-                    
+
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Produtos">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#produtos" data-parent="#produtos">
                             <i class="fa fa-cutlery" aria-hidden="true"></i>
@@ -101,8 +109,8 @@ include '../controle/validarLogin.php';
                             </li>
                         </ul>
                     </li>
-                    
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Relátorios">
+
+<!--                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Relátorios">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-file-text"></i>
                             <span class="nav-link-text">Relátorios</span>
@@ -111,14 +119,8 @@ include '../controle/validarLogin.php';
                             <li>
                                 <a href="#">Second Level Item</a>
                             </li>
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
                         </ul>
-                    </li>
+                    </li>-->
 
 
                 </ul>
@@ -132,7 +134,7 @@ include '../controle/validarLogin.php';
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a style="padding: 0 8;" class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                            <img class="rounded-circle"width="40" src="imagens/fotos/<?php echo $_SESSION["foto"];?>"/>
+                            <img class="rounded-circle"width="40" src="imagens/fotos/<?php echo $_SESSION["foto"]; ?>"/>
                         </a>
                     </li>
                 </ul>
@@ -152,7 +154,7 @@ include '../controle/validarLogin.php';
                         </div>
                     </div>
                 </footer>
-               
+
                 <!-- Logout Modal-->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -163,14 +165,14 @@ include '../controle/validarLogin.php';
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                        
-                        <div class="modal-body">
-                            <img src="imagens/fotos/<?php echo $_SESSION["foto"];?>" width="200" height="150"/><br>
-        
-        Usuario: <?php echo $_SESSION["usuario"];?><br>
-        Login: <?php echo $_SESSION["nome_usuario"];?><br>
-        Perfil: <?php echo $_SESSION["perfil"];?><br>
-      </div>
+
+                            <div class="modal-body">
+                                <img src="imagens/fotos/<?php echo $_SESSION["foto"]; ?>" width="200" height="150"/><br>
+
+                                Usuario: <?php echo $_SESSION["usuario"]; ?><br>
+                                Login: <?php echo $_SESSION["nome_usuario"]; ?><br>
+                                Perfil: <?php echo $_SESSION["perfil"]; ?><br>
+                            </div>
                             <div class="modal-body">Deseja realmente sair?</div>
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>

@@ -34,12 +34,12 @@ class produtoDAO {
 
         try {
             //var_dump($cliente);
-            $sql = "INSERT INTO `produto`(`nome`, `quantidade`, `preco` ) "
+            $sql = "INSERT INTO `produto`(`nome_produto`, `quantidade`, `preco` ) "
                     . "VALUES (:nome, :quantidade,:preco )";
             //echo $sql;       
             //exit();
             $stm = $this->pdo->prepare($sql);
-            $stm->bindValue("nome", $produto->getNome());
+            $stm->bindValue("nome", $produto->getNome_produto());
             $stm->bindValue("quantidade", $produto->getQuantidade());
             $stm->bindValue("preco", $produto->getPreco());
             return $stm->execute();
@@ -68,7 +68,7 @@ class produtoDAO {
     public function getProduto($idProduto) {
          try {
             $sql="SELECT "
-                . "`id_produto`, `nome`, `quantidade`, `preco` "
+                . "`id_produto`, `nome_produto`, `quantidade`, `preco` "
                 . "FROM `produto` "
                 . "WHERE id_produto=:idProduto";
             $stm = $this->pdo->prepare($sql);
@@ -89,11 +89,11 @@ class produtoDAO {
     public function editar(produto $produto) {
         try {
             $sql = "UPDATE `produto` SET "
-                    . "`nome`=:nomeProduto, "
+                    . "`nome_produto`=:nomeProduto, "
                     . "`quantidade`=:quantidade,`preco`=:preco "
                     . "WHERE `id_produto`=:idProduto";
             $stm = $this->pdo->prepare($sql);
-            $stm->bindValue("nomeProduto", $produto->getNome());
+            $stm->bindValue("nomeProduto", $produto->getNome_produto());
             $stm->bindValue("quantidade", $produto->getQuantidade());
             $stm->bindValue("preco", $produto->getPreco());
             $stm->bindValue("idProduto", $produto->getIdProduto());

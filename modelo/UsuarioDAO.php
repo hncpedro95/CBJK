@@ -14,7 +14,7 @@ class UsuarioDAO {
     public function getUsuario($idUsuario){
         try {
             $sql="SELECT "
-                . "`id_usuario`, `nome`, `login`, `senha`, `id_perfil`, `dt_cadastro`, `foto`"
+                . "`id_usuario`, `nome_usuario`, `login`, `senha`, `id_perfil`, `dt_cadastro`, `foto`"
                 . "FROM `usuario` "
                 . "WHERE id_usuario=:idUsuario";
             $stm = $this->pdo->prepare($sql);
@@ -31,7 +31,7 @@ class UsuarioDAO {
     public function listarTodos(){
         try {
             $sql="SELECT "
-                . "u.`id_usuario`, u.`nome`,  u.`login`,  u.`senha`,  u.`dt_cadastro`, "
+                . "u.`id_usuario`, u.`nome_usuario`,  u.`login`,  u.`senha`,  u.`dt_cadastro`, "
                 . "p.`nome` AS perfil "
                 . "FROM `usuario` AS u "
                 . "INNER JOIN perfil AS p ON (u.id_perfil=p.id_perfil) \n";
@@ -47,12 +47,12 @@ class UsuarioDAO {
 
     public function cadastrar(Usuario $usuario) {
         try {
-            $sql = "INSERT INTO `usuario`(`nome`, `login`, `senha`, `id_perfil`, `dt_cadastro`, `foto`) "
+            $sql = "INSERT INTO `usuario`(`nome_usuario`, `login`, `senha`, `id_perfil`, `dt_cadastro`, `foto`) "
                     . "VALUES (:nome,:login,:senha,:id_perfil,:dt_cadastro, :foto)";
             print_r($sql);
             print_r($usuario);
             $stm = $this->pdo->prepare($sql);
-            $stm->bindValue("nome", $usuario->getNome());
+            $stm->bindValue("nome", $usuario->getNome_usuario());
             $stm->bindValue("login", $usuario->getLogin());
             $stm->bindValue("senha", $usuario->getSenha());
             $stm->bindValue("id_perfil", $usuario->getIdPerfil());
@@ -89,14 +89,14 @@ class UsuarioDAO {
     public function editar(Usuario $usuario) {
         try {
             $sql = "UPDATE `usuario` SET "
-                    . "`nome`=:nome,`login`=:login, "
+                    . "`nome_usuario`=:nome,`login`=:login, "
                     . "`senha`=:senha,`id_perfil`=:id_perfil ";
             if (!empty($usuario->getFoto())) {
                 $sql .= " ,foto=:foto ";
             }
             $sql .= "WHERE `id_usuario`=:idUsuario";
             $stm = $this->pdo->prepare($sql);
-            $stm->bindValue("nome", $usuario->getNome());
+            $stm->bindValue("nome", $usuario->getNome_usuario());
             $stm->bindValue("login", $usuario->getLogin());
             $stm->bindValue("senha", $usuario->getSenha());
             $stm->bindValue("id_perfil", $usuario->getIdPerfil());
