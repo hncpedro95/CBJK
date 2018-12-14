@@ -41,3 +41,4 @@ if ($cadastrado){
 } else {
   echo "Erro ao cadastrar !";    
 }
+

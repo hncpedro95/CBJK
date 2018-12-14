@@ -32,7 +32,7 @@ require_once '../modelo/produtoDAO.php';
                     </div>
                     <div class="col-md-1 mb-2">
                         <label for="validationCustom01">Quantidade:</label>
-                        <input name="quantidade"type="text" value="<?php echo $produto->quantidade; ?>" class="form-control" id="quantidade"  required>
+                        <input name="quantidade"type="text" onkeyup="somenteNumeros(this);" value="<?php echo $produto->quantidade; ?>" maxlength="4" class="form-control" id="quantidade"  required>
                         <div class="valid-feedback">
                             Válido !
                         </div>
@@ -53,10 +53,21 @@ require_once '../modelo/produtoDAO.php';
             </form>
         </div>
         <script>
-  $(function() {
-    $('#preco').maskMoney();
-  })
-</script>
+            $(function () {
+                $('#preco').maskMoney();
+            })
+        </script>
+        
+        <script>
+            function somenteNumeros(num) {
+                var er = /[^0-9.]/;
+                er.lastIndex = 0;
+                var campo = num;
+                if (er.test(campo.value)) {
+                    campo.value = "";
+                }
+            }
+        </script>
     <center>
         <?php
         if (!empty($_GET["msg"])) {

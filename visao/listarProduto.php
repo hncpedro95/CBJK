@@ -25,12 +25,10 @@ require_once '../util/funcaoData.php';
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr class="info">
-                        <th>Código do produto</th>
-                        <th>Nome do produto</th>
-                        <!--<th>Fabricante</th>-->
-                        <th>Quantidade</th>
-                        <th>Preço</th>
-                        <!--<th>Foto</th>-->
+                        <th class='text-center'>Código do produto</th>
+                        <th class='text-center'>Nome do produto</th>
+                        <th class='text-center'>Quantidade</th>
+                        <th class='text-center'>Preço</th>
 
                         <th style="text-align: center;">Opções</th>
 
@@ -43,12 +41,10 @@ require_once '../util/funcaoData.php';
 
                 foreach ($produtos as $produto) {
                     echo "<tr>";
-                    echo "  <td> {$produto->id_produto} </td>";
-                    echo "  <td> {$produto->nome} </td>";
-//                    echo "  <td> {$produto->fabricante} </td>";
-                    echo "  <td> {$produto->quantidade} </td>";
-                    echo "  <td> {$produto->preco} </td>";
-//                    echo '<td> <img width="100" height="60" src="imagens/fotosProdutos/'.$produto->foto.'"  ></td>';
+                    echo "  <td class='text-center'> {$produto->id_produto} </td>";
+                    echo "  <td class='text-center'> {$produto->nome} </td>";
+                    echo "  <td class='text-center'> {$produto->quantidade} </td>";
+                    echo "  <td class='text-center'> {$produto->preco} </td>";
                     echo "  <td style='text-align: center;'>"
                     . "   <a  class='fa fa-trash text-danger'style='font-size:2rem' href='../controle/excluirProduto.php?idProduto={$produto->id_produto}'></a>"
                     . "   &nbsp; &nbsp;<a class='fa fa-pencil'style='font-size:2rem' href='formAlterarProduto.php?idProduto={$produto->id_produto}'></a>"

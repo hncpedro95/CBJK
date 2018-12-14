@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-md-1 mb-2">
                         <label for="validationCustom01">Qtd:</label>
-                        <input name="quantidade"type="text" onkeyup="somenteNumeros(this);" class="form-control" id="quantidade"  required>
+                        <input name="quantidade"type="text" onkeyup="somenteNumeros(this);" maxlength="4" class="form-control" id="quantidade"  required>
                         <div class="valid-feedback">
                             Válido !
                         </div>
